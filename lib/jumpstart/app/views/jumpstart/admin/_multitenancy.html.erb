@@ -1,0 +1,40 @@
+<h4>Accounts</h4>
+<p class="text-sm text-gray-700 dark:text-gray-300">Accounts make sharing resources easy with other users and teams.</p>
+<p class="mt-8 text-sm text-gray-700 dark:text-gray-300">What kind of accounts does your application need?</p>
+<div class="mt-2 form-group">
+  <div>
+    <%= f.radio_button :personal_accounts, true, checked: Jumpstart.config.personal_accounts?, class: "form-checkbox", id: "personal_accounts" %>
+    <%= label_tag "personal_accounts", "Personal and Team Accounts", class: "inline-block" %>
+  </div>
+  <div>
+    <%= f.radio_button :personal_accounts, false, checked: !Jumpstart.config.personal_accounts?, class: "form-checkbox", id: "team_accounts" %>
+    <%= label_tag "team_accounts", "Just Team Accounts", class: "inline-block" %>
+  </div>
+</div>
+
+<hr class="my-4" />
+
+<h4>Account Switching</h4>
+<p class="text-sm text-gray-700 dark:text-gray-300">How would you like to switch between accounts?</p>
+
+<div class="mt-4 mb-24 space-y-2">
+  <label>Switch accounts by:</label>
+
+  <div class="custom-control custom-checkbox toggle">
+    <%= check_box_tag "configuration[multitenancy][]", "session", Jumpstart::Multitenancy.session?, class: "form-checkbox", id: "multitenancy_session", disabled: true %>
+    <%= label_tag "multitenancy_session", "Session Cookie", class: "inline-block" %>
+    <span class="text-sm text-gray-600 dark:text-gray-300/75">(always enabled as a fallback)</span>
+  </div>
+
+  <div class="custom-control custom-checkbox toggle">
+    <%= check_box_tag "configuration[multitenancy][]", "subdomain", Jumpstart::Multitenancy.subdomain?, class: "form-checkbox", id: "multitenancy_subdomain" %>
+    <%= label_tag "multitenancy_subdomain", "Subdomains & Custom Domains", class: "inline-block" %>
+    <span class="text-sm text-gray-600 dark:text-gray-300/75">(such as you.example.org or mydomain.com)</span>
+  </div>
+
+  <div class="custom-control custom-checkbox toggle">
+    <%= check_box_tag "configuration[multitenancy][]", "path", Jumpstart::Multitenancy.path?, class: "form-checkbox", id: "multitenancy_path" %>
+    <%= label_tag "multitenancy_path", "URL Path", class: "inline-block" %>
+    <span class="text-sm text-gray-600 dark:text-gray-300/75">(prepends <code>/:account_id/</code> as the script_name before Rails routes)</span>
+  </div>
+</div>

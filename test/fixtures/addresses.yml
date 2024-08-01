@@ -1,0 +1,19 @@
+one:
+  address_type: 0
+  line1: 123 My Home Dr
+  line2:
+  city: Small Town
+  state: LA
+  country: US
+  postal_code: 12345
+  addressable: one (Account)
+
+company_billing_address:
+  address_type: 0
+  line1: 123 Corporate Dr
+  line2: Suite 13
+  city: BigTechValley
+  state: California
+  country: US
+  postal_code: 12345
+  addressable: company (Account)

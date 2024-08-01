@@ -1,0 +1,17 @@
+<%= content_for :title, "Blogs ##{@blog.id}" %>
+<%= turbo_stream_from @blog %>
+
+<div class="container px-4 mx-auto my-8">
+  <div class="flex items-center justify-between mb-4">
+    <h1 class="h3">
+      <%= link_to "Blogs", blogs_path, class: "text-black dark:text-white" %>
+      <span class="text-gray-400 font-light mx-2">\</span>
+      Blog #<%= @blog.id %>
+    </h1>
+    <%= link_to t("edit"), edit_blog_path(@blog), class: "btn btn-white" %>
+  </div>
+
+  <div class="p-8 bg-white dark:bg-gray-900 dark:border dark:border-gray-700 rounded shadow">
+    <%= render @blog %>
+  </div>
+</div>

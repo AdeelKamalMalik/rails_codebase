@@ -1,0 +1,21 @@
+<% template ||= false %>
+<% file = ContractFile.new(type: 'Msa', contract: Contract.new) if template %>
+<div class="border-b-[1px] pt-1 pb-[11px]" dynamic-id="<%= file.file.signed_id %>" id="contract-file-<%= file.id || 'template' %>">
+  <div class="gap-1.5 flex items-center">
+    <div class="status-and-type gap-2 flex items-center">
+      <% if file.analyzing? || file.on_hold? || file.uploading? %>
+        <% if template %>
+          <% ContractFile.statuses.each do |label, value| %>
+            <% file.status = label %>
+            <%= file_status_badge(file, id: file.review_needed? ? 'review-needed-status-badge' : '') %>
+          <% end %>
+        <% else %>
+          <%= file_status_badge(file, id: file.review_needed? ? 'review-needed-status-badge' : '') %>
+        <% end %>
+      <% else %>
+        <div class="document-type text-sm font-medium text-slate-500 py-1 px-2 font-semibold hover:cursor-pointer"><%= file.type.upcase %></div>
+      <% end %>
+    </div>
+    <div class="text-slate-500 hover:cursor-pointer text-sm font-noraml truncate w-[150px] filename" data-controller="tooltip" data-tooltip-content-value="<%= file.file.filename.to_s %>"><%= file.file.filename.to_s %></div>
+  </div>
+</div>

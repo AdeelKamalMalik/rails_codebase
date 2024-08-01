@@ -1,0 +1,27 @@
+<h6 class="my-4">Two-Step Verification</h6>
+<div class="flex mt-8">
+  <div class="w-2/5 flex flex-col">
+    <div class="font-semibold flex items-center">
+      <span>Authenticator App</span>
+      <%= render partial: 'account/settings/tabs/tooltip', locals: {app: true} %>
+    </div>
+    <%= enabled if current_user.app_2fa_enabled? %>
+  </div>
+  <p class="w-2/5">Instead of waiting for text messages, get verification codes from an authenticator app. It works even if your phone is offline. First, download an Authenticator app</p>
+  <div class="w-1/5">
+    <%= link_to app_2fa_enable_text, update_setup_user_two_factor_path, class:"font-semibold cursor-pointer text-blue-700 float-right" %>
+  </div>
+</div>
+<div class="flex mt-8">
+  <div class="w-2/5 flex flex-col">
+    <div class="font-semibold flex items-center">
+      <span>2-Step Verification Phone</span>
+      <%= render partial: 'account/settings/tabs/tooltip', locals: {app: false} %>
+    </div>
+    <%= enabled if current_user.phone_verified? %>
+  </div>
+  <p class="w-2/5">When you add a number for 2-Step Verification, Contractful will send you a text message to make sure the number is yours.</p>
+  <div class="w-1/5">
+    <%= link_to sms_2fa_enable_text, update_m_setup_user_two_factor_path, class:"font-semibold cursor-pointer text-blue-700 float-right" %>
+  </div>
+</div>

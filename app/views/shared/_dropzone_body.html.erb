@@ -1,0 +1,12 @@
+<div class="flex flex-col justify-center dropzone cursor-pointer dz-clickable dz-upload-prompt items-center h-full" data-direct-upload-url="<%= rails_direct_uploads_url %>" data-dropzone-target="dropzone" data-remove-image="<%= image_path('icons/trash-blue-outline.svg') %>">
+  <%= image_tag "icons/misc-upload.svg", size: '36.25x36.25', class: "dz-upload-prompt" %>
+  <div class="mt-5 dz-upload-prompt">
+    <span class="text-blue-700 text-lg font-semibold">Upload files</span>
+    <span class="text-gray-500 font-semibold text-lg">associated with your contract</span>
+  </div>
+  <div class="dz-message" data-dz-message></div>
+  <div class="text-sm text-gray-500 mt-3">.pdf, .docx, .doc, .png, .jpg, .jpeg</div>
+  <div class="text-sm text-gray-500 mt-3">Max 10 MB</div>
+  <div id="maxFilesError" class="text-m text-red-500 mt-3 hidden">You can not upload any more files.</div>
+  <div class="max-h-96 overflow-x-auto dropzone-previews pr-3 w-4/5"></div>
+</div>

@@ -1,0 +1,567 @@
+'Diversio Core 1 Year Order Form [VERSION 230401] (2).docx.pdf':
+  json:
+    "order_number": "Diversio-230401"
+    "purchase_order_required": true
+    "purchase_order_number": nil
+    "vendor_name": "Diversio.com"
+    "vendor_url": "https://www.diversio.com"
+    "contract_id": nil
+    "payment_terms": "Upon Receipt"
+    "billing_frequency": "Paid Annually"
+    "currency": "USD"
+    "acv": 11200
+    "tcv": 22400
+    "marketing_clause": nil
+    "marketing_clause_text": nil
+    "auto_renewal_clause": false
+    "auto_renewal_clause_text": nil
+    "renewal_notice_period": nil
+    "termination_clause": nil
+    "termination_clause_text": nil
+    "start_date": "2018-01-22"
+    "end_date": "2023-03-22"
+    "effective_date": nil
+    "signature_date": "2022-03-24"
+    "expiry_date": nil
+    "counterparty_contact_name": "Karly Neveu"
+    "counterparty_contact_email": "karlyneveu@gmail.com"
+    "client_contact_name": "Karly Neveu"
+    "client_contact_email": "karlyneveu@gmail.com"
+    "products":
+      - "product_name": "Diversio: Professional"
+        "quantity": 14
+        "unit": "Seats"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 1800
+        "sales_tax": nil
+        "notes": nil
+      - "product_name": "Platform Fee"
+        "quantity": 1
+        "unit": "Fee"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 0
+        "sales_tax": nil
+        "notes": nil
+'2021 Renewal Agreement - Diversio.pdf':
+  json:
+    "order_number": "Diversio-13400"
+    "purchase_order_required": true
+    "purchase_order_number": nil
+    "vendor_name": "Diversio.com"
+    "vendor_url": "https://www.diversio.com"
+    "contract_id": nil
+    "payment_terms": "Upon Receipt"
+    "billing_frequency": "Paid Annually"
+    "currency": "USD"
+    "acv": 9200
+    "tcv": 18400
+    "marketing_clause": nil
+    "marketing_clause_text": nil
+    "auto_renewal_clause": false
+    "auto_renewal_clause_text": nil
+    "renewal_notice_period": nil
+    "termination_clause": nil
+    "termination_clause_text": nil
+    "start_date": "2019-01-22"
+    "end_date": "2024-03-22"
+    "effective_date": nil
+    "signature_date": "2022-03-24"
+    "expiry_date": nil
+    "counterparty_contact_name": "Karly Neveu"
+    "counterparty_contact_email": "karlyneveu@gmail.com"
+    "client_contact_name": "Karly Neveu"
+    "client_contact_email": "karlyneveu@gmail.com"
+    "products":
+      - "product_name": "Diversio: Professional"
+        "quantity": 14
+        "unit": "Seats"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 2800
+        "sales_tax": nil
+        "notes": nil
+'Credit_Refund_DocuSign.pdf':
+  json:
+    "order_number": "Google-230401"
+    "purchase_order_required": true
+    "purchase_order_number": nil
+    "vendor_name": "Google.com"
+    "vendor_url": "https://www.google.com"
+    "contract_id": nil
+    "payment_terms": "Upon Receipt"
+    "billing_frequency": "Paid Annually"
+    "currency": "USD"
+    "acv": 1200
+    "tcv": 2400
+    "marketing_clause": nil
+    "marketing_clause_text": nil
+    "auto_renewal_clause": false
+    "auto_renewal_clause_text": nil
+    "renewal_notice_period": nil
+    "termination_clause": nil
+    "termination_clause_text": nil
+    "start_date": "2018-01-23"
+    "end_date": "2023-01-23"
+    "effective_date": nil
+    "signature_date": "2022-03-24"
+    "expiry_date": nil
+    "counterparty_contact_name": "Karly Neveu"
+    "counterparty_contact_email": "karlyneveu@gmail.com"
+    "client_contact_name": "Karly Neveu"
+    "client_contact_email": "karlyneveu@gmail.com"
+    "products":
+      - "product_name": "Google: Professional"
+        "quantity": 14
+        "unit": "Seats"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 2700
+        "sales_tax": nil
+        "notes": nil}
+      - "product_name": "Google Fee"
+        "quantity": 1
+        "unit": "Fee"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 0
+        "sales_tax": nil
+        "notes": nil
+'Credly - Renewal 2023.pdf':
+  json:
+    "order_number": "Credly-230401"
+    "purchase_order_required": true
+    "purchase_order_number": nil
+    "vendor_name": "Credly.com"
+    "vendor_url": "https://credly.com"
+    "contract_id": nil
+    "payment_terms": "Upon Receipt"
+    "billing_frequency": "Paid Annually"
+    "currency": "USD"
+    "acv": 11200
+    "tcv": 22400
+    "marketing_clause": nil
+    "marketing_clause_text": nil
+    "auto_renewal_clause": false
+    "auto_renewal_clause_text": nil
+    "renewal_notice_period": nil
+    "termination_clause": nil
+    "termination_clause_text": nil
+    "start_date": "2018-01-24"
+    "end_date": "2023-01-24"
+    "effective_date": nil
+    "signature_date": "2022-03-24"
+    "expiry_date": nil
+    "counterparty_contact_name": "Karly Neveu"
+    "counterparty_contact_email": "karlyneveu@gmail.com"
+    "client_contact_name": "Karly Neveu"
+    "client_contact_email": "karlyneveu@gmail.com"
+    "products":
+      - "product_name": "Credly: Professional"
+        "quantity": 14
+        "unit": "Seats"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 2600
+        "sales_tax": nil
+        "notes": nil}
+      - "product_name": "Credly: Platform Fee"
+        "quantity": 1
+        "unit": "Fee"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 0
+        "sales_tax": nil
+        "notes": nil
+'Diversio - Outreach Renewal Review Copy 06.07.2023.pdf':
+  json:
+    "order_number": "Momento Europe UC - 230401"
+    "purchase_order_required": true
+    "purchase_order_number": nil
+    "vendor_name": "Momento Europe UC"
+    "vendor_url": "www.momento.com"
+    "contract_id": nil
+    "payment_terms": "Upon Receipt"
+    "billing_frequency": "Paid Annually"
+    "currency": "USD"
+    "acv": 14500
+    "tcv": 29000
+    "marketing_clause": nil
+    "marketing_clause_text": nil
+    "auto_renewal_clause": false
+    "auto_renewal_clause_text": nil
+    "renewal_notice_period": nil
+    "termination_clause": nil
+    "termination_clause_text": nil
+    "start_date": "2018-01-25"
+    "end_date": "2023-03-25"
+    "effective_date": nil
+    "signature_date": "2022-03-24"
+    "expiry_date": nil
+    "counterparty_contact_name": "Karly Neveu"
+    "counterparty_contact_email": "karlyneveu@gmail.com"
+    "client_contact_name": "Karly Neveu"
+    "client_contact_email": "karlyneveu@gmail.com"
+    "products":
+      - "product_name": "Diversio: Professional"
+        "quantity": 14
+        "unit": "Seats"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 2500
+        "sales_tax": nil
+        "notes": nil}
+      - "product_name": "Platform Fee"
+        "quantity": 1
+        "unit": "Fee"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 0
+        "sales_tax": nil
+        "notes": nil
+'Diversio Performance Creative (Reduced Scope).pdf':
+  json:
+    "order_number": "Diversio Performance - 230401"
+    "purchase_order_required": true
+    "purchase_order_number": nil
+    "vendor_name": "Diversio.com"
+    "vendor_url": "https://www.diversio.com"
+    "contract_id": nil
+    "payment_terms": "Upon Receipt"
+    "billing_frequency": "Paid Annually"
+    "currency": "USD"
+    "acv": 11200
+    "tcv": 22400
+    "marketing_clause": nil
+    "marketing_clause_text": nil
+    "auto_renewal_clause": false
+    "auto_renewal_clause_text": nil
+    "renewal_notice_period": nil
+    "termination_clause": nil
+    "termination_clause_text": nil
+    "start_date": "2018-01-26"
+    "end_date": "2023-03-26"
+    "effective_date": nil
+    "signature_date": "2022-03-24"
+    "expiry_date": nil
+    "counterparty_contact_name": "Karly Neveu"
+    "counterparty_contact_email": "karlyneveu@gmail.com"
+    "client_contact_name": "Karly Neveu"
+    "client_contact_email": "karlyneveu@gmail.com"
+    "products":
+      - "product_name": "Diversio: Professional"
+        "quantity": 14
+        "unit": "Seats"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 2400
+        "sales_tax": nil
+        "notes": nil}
+      - "product_name": "Platform Fee"
+        "quantity": 1
+        "unit": "Fee"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 0
+        "sales_tax": nil
+        "notes": nil
+'DiversioIEQCapitalLetterOfAgreementFINAL.pdf':
+  json:
+    "order_number": "DiversioIEQ-230401"
+    "purchase_order_required": true
+    "purchase_order_number": nil
+    "vendor_name": "DiversioIEQ"
+    "vendor_url": "https://www.diversioieq.com"
+    "contract_id": nil
+    "payment_terms": "Upon Receipt"
+    "billing_frequency": "Paid Annually"
+    "currency": "USD"
+    "acv": 1100
+    "tcv": 2200
+    "marketing_clause": nil
+    "marketing_clause_text": nil
+    "auto_renewal_clause": false
+    "auto_renewal_clause_text": nil
+    "renewal_notice_period": nil
+    "termination_clause": nil
+    "termination_clause_text": nil
+    "start_date": "2018-01-27"
+    "end_date": "2023-03-27"
+    "effective_date": nil
+    "signature_date": "2022-03-24"
+    "expiry_date": nil
+    "counterparty_contact_name": "Karly Neveu"
+    "counterparty_contact_email": "karlyneveu@gmail.com"
+    "client_contact_name": "Karly Neveu"
+    "client_contact_email": "karlyneveu@gmail.com"
+    "products":
+      - "product_name": "Diversio: Professional"
+        "quantity": 14
+        "unit": "Seats"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 1200
+        "sales_tax": nil
+        "notes": nil}
+      - "product_name": "Platform Fee"
+        "quantity": 1
+        "unit": "Fee"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 0
+        "sales_tax": nil
+        "notes": nil
+'Diversity VC + Pale Blue Dot - 2022.pdf':
+  json:
+    "order_number": "ZoomInfo-230401"
+    "purchase_order_required": true
+    "purchase_order_number": nil
+    "vendor_name": "Zoom.com"
+    "vendor_url": "www.zoom.com"
+    "contract_id": nil
+    "payment_terms": "Upon Receipt"
+    "billing_frequency": "Paid Annually"
+    "currency": "USD"
+    "acv": 1120
+    "tcv": 2240
+    "marketing_clause": nil
+    "marketing_clause_text": nil
+    "auto_renewal_clause": false
+    "auto_renewal_clause_text": nil
+    "renewal_notice_period": nil
+    "termination_clause": nil
+    "termination_clause_text": nil
+    "start_date": "2018-01-29"
+    "end_date": "2023-03-29"
+    "effective_date": nil
+    "signature_date": "2022-03-24"
+    "expiry_date": nil
+    "counterparty_contact_name": "Karly Neveu"
+    "counterparty_contact_email": "karlyneveu@gmail.com"
+    "client_contact_name": "Karly Neveu"
+    "client_contact_email": "karlyneveu@gmail.com"
+    "products":
+      - "product_name": "Diversio: Professional"
+        "quantity": 14
+        "unit": "Seats"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 1300
+        "sales_tax": nil
+        "notes": nil}
+      - "product_name": "Platform Fee"
+        "quantity": 1
+        "unit": "Fee"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 0
+        "sales_tax": nil
+        "notes": nil
+'Gong_Proposal-GONG-51597-24-Jan-2023-17-18-48-signed.pdf':
+  json:
+    "order_number": "Gong.io Inc."
+    "purchase_order_required": true
+    "purchase_order_number": nil
+    "vendor_name": "Gong.io"
+    "vendor_url": "https://gong.io"
+    "contract_id": nil
+    "payment_terms": "Upon Receipt"
+    "billing_frequency": "Paid Annually"
+    "currency": "USD"
+    "acv": 11200
+    "tcv": 22400
+    "marketing_clause": nil
+    "marketing_clause_text": nil
+    "auto_renewal_clause": false
+    "auto_renewal_clause_text": nil
+    "renewal_notice_period": nil
+    "termination_clause": nil
+    "termination_clause_text": nil
+    "start_date": "2018-01-22"
+    "end_date": "2023-03-22"
+    "effective_date": nil
+    "signature_date": "2022-03-24"
+    "expiry_date": nil
+    "counterparty_contact_name": "Karly Neveu"
+    "counterparty_contact_email": "karlyneveu@gmail.com"
+    "client_contact_name": "Karly Neveu"
+    "client_contact_email": "karlyneveu@gmail.com"
+    "products":
+      - "product_name": "Diversio: Professional"
+        "quantity": 14
+        "unit": "Seats"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 1400
+        "sales_tax": nil
+        "notes": nil}
+      - "product_name": "Platform Fee"
+        "quantity": 1
+        "unit": "Fee"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 0
+        "sales_tax": nil
+        "notes": nil
+'INV-SME-00023019.pdf':
+  json:
+    "order_number": "Diversio-230401"
+    "purchase_order_required": true
+    "purchase_order_number": nil
+    "vendor_name": "Gong.io"
+    "vendor_url": "https://gong.io"
+    "contract_id": nil
+    "payment_terms": "Upon Receipt"
+    "billing_frequency": "Paid Annually"
+    "currency": "USD"
+    "acv": 11200
+    "tcv": 22400
+    "marketing_clause": nil
+    "marketing_clause_text": nil
+    "auto_renewal_clause": false
+    "auto_renewal_clause_text": nil
+    "renewal_notice_period": nil
+    "termination_clause": nil
+    "termination_clause_text": nil
+    "start_date": "2018-01-22"
+    "end_date": "2023-03-22"
+    "effective_date": nil
+    "signature_date": "2022-03-24"
+    "expiry_date": nil
+    "counterparty_contact_name": "Karly Neveu"
+    "counterparty_contact_email": "karlyneveu@gmail.com"
+    "client_contact_name": "Karly Neveu"
+    "client_contact_email": "karlyneveu@gmail.com"
+    "products":
+      - "product_name": "Diversio: Professional"
+        "quantity": 14
+        "unit": "Seats"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 1500
+        "sales_tax": nil
+        "notes": nil}
+      - "product_name": "Platform Fee"
+        "quantity": 1
+        "unit": "Fee"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 0
+        "sales_tax": nil
+        "notes": nil
+'Order-2378141.pdf':
+  json:
+    "order_number": "Slack-230401"
+    "purchase_order_required": true
+    "purchase_order_number": nil
+    "vendor_name": "Microsoft.io"
+    "vendor_url": "https://www.microsoft.com"
+    "contract_id": nil
+    "payment_terms": "Upon Receipt"
+    "billing_frequency": "Paid Annually"
+    "currency": "USD"
+    "acv": 11200
+    "tcv": 22400
+    "marketing_clause": nil
+    "marketing_clause_text": nil
+    "auto_renewal_clause": false
+    "auto_renewal_clause_text": nil
+    "renewal_notice_period": nil
+    "termination_clause": nil
+    "termination_clause_text": nil
+    "start_date": "2018-01-22"
+    "end_date": "2023-03-22"
+    "effective_date": nil
+    "signature_date": "2022-03-24"
+    "expiry_date": nil
+    "counterparty_contact_name": "Karly Neveu"
+    "counterparty_contact_email": "karlyneveu@gmail.com"
+    "client_contact_name": "Karly Neveu"
+    "client_contact_email": "karlyneveu@gmail.com"
+    "products":
+      - "product_name": "Diversio: Professional"
+        "quantity": 14
+        "unit": "Seats"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 1600
+        "sales_tax": nil
+        "notes": nil}
+      - "product_name": "Platform Fee"
+        "quantity": 1
+        "unit": "Fee"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 0
+        "sales_tax": nil
+        "notes": nil
+'contract.doc':
+  json:
+    "order_number": "Slack-230401"
+    "purchase_order_required": true
+    "purchase_order_number": nil
+    "vendor_name": "Microsoft.io"
+    "vendor_url": "https://www.microsoft.com"
+    "contract_id": nil
+    "payment_terms": "Upon Receipt"
+    "billing_frequency": "Paid Annually"
+    "currency": "USD"
+    "acv": 11200
+    "tcv": 22400
+    "marketing_clause": nil
+    "marketing_clause_text": nil
+    "auto_renewal_clause": false
+    "auto_renewal_clause_text": nil
+    "renewal_notice_period": nil
+    "termination_clause": nil
+    "termination_clause_text": nil
+    "start_date": "2018-01-22"
+    "end_date": "2023-03-22"
+    "effective_date": nil
+    "signature_date": "2022-03-24"
+    "expiry_date": nil
+    "counterparty_contact_name": "Karly Neveu"
+    "counterparty_contact_email": "karlyneveu@gmail.com"
+    "client_contact_name": "Karly Neveu"
+    "client_contact_email": "karlyneveu@gmail.com"
+    "products":
+      - "product_name": "Diversio: Professional"
+        "quantity": 14
+        "unit": "Seats"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 1700
+        "sales_tax": nil
+        "notes": nil}
+      - "product_name": "Platform Fee"
+        "quantity": 1
+        "unit": "Fee"
+        "term": "12 months"
+        "start_date": "2022-03-23"
+        "end_date": "2023-03-22"
+        "sales_price": 0
+        "sales_tax": nil
+        "notes": nil

@@ -1,0 +1,10 @@
+<div class="h-screen flex items-center justify-center">
+  <div class="text-center">
+    <div class="flex justify-center mb-8">
+      <%= image_tag "logo.svg" %>
+    </div>
+    <h1>Please verify your email address</h1>
+    <p class="my-2">Please go to your email and click the “Verify email” button</p>
+    <p class="text-gray-500 mt-4">Didn’t get an email? <%= link_to 'Resend confirmation', new_user_confirmation_path, class: 'font-semibold' %></p>
+  </div>
+</div>

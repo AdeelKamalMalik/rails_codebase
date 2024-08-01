@@ -1,0 +1,66 @@
+<% content_for :form_block do %>
+  <div class="mb-4">
+    <h2 class="mb-1 mt-5 dark:text-black"><%= t('.sign_up') %></h2>
+    <span class="text-gray-500 mr-2">Already a member?</span>
+    <%= link_to("Sign In", new_session_path(resource_name), class: "font-semibold") %>
+  </div>
+
+  <% if @account_invitation %>
+    <div class="flex items-center justify-center mb-4 text-center">
+      <%= image_tag avatar_url_for(@account_invitation.account), class: "h-5 w-5 rounded-full inline-block mr-1" %>
+      <div>
+        <strong><%= @account_invitation.invited_by.name %></strong> invited you to join <strong><%= @account_invitation.account.name %></strong>
+      </div>
+    </div>
+  <% end %>
+
+  <%= form_with(model: resource, as: resource_name, url: registration_path(resource_name, invite: params[:invite])) do |f| %>
+    <%= render "shared/error_messages", resource: resource %>
+
+    <%= f.fields_for :owned_accounts do |a| %>
+      <div class="form-group">
+       <%= a.label :name, "Company Name", class: 'dark:text-black' %>
+       <%= a.text_field :name, autofocus: true, class: "form-control dark:bg-white dark:text-black", required: true %>
+      </div>
+   <% end %>
+
+    <%# Add any extra fields when creating an Account as part of registration %>
+    <div class="form-group">
+      <%= f.label :first_name, "First Name", class: 'dark:text-black' %>
+      <%= f.text_field :first_name, autocomplete: "name", class: "form-control dark:bg-white dark:text-black", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :last_name, "Last Name", class: 'dark:text-black' %>
+      <%= f.text_field :last_name, autocomplete: "name", class: "form-control dark:bg-white dark:text-black", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Email address", class: 'dark:text-black' %>
+      <%= f.email_field :email, autocomplete: "email", class: "form-control dark:bg-white dark:text-black", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password, class: 'dark:text-black' %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control dark:bg-white dark:text-black", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= invisible_captcha %>
+    </div>
+
+    <div class="form-group">
+      <%= f.button button_text("Create Account", disable_with: t(".submitting")), class: "btn btn-primary btn-expanded" %>
+    </div>
+  <% end %>
+
+   <%#  <div class="flex items-center my-10 px-4">
+      <div class="flex-grow bg bg-gray-200 h-0.5"></div>
+      <div class="flex-grow-0 mx-5 text">Or continue with</div>
+      <div class="flex-grow bg bg-gray-200 h-0.5"></div>
+    </div>
+ %>
+    <%#= link_to image_tag("icons/google.svg", class: "mr-3") + t(".google_oauth2"), root_path, class: 'btn btn-block shadow text-xl my-8 font-normal' %>
+<% end %>
+
+<%= render "devise/shared/form_block" %>

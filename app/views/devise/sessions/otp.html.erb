@@ -1,0 +1,20 @@
+<% content_for :form_block do %>
+  <div class="mb-4">
+    <h2 class="mb-1 mt-5"><%= t("users.two_factor.header") %></h2>
+  </div>
+  <%= form_with url: new_user_session_path do |form| %>
+    <div class="form-group">
+      <%= form.label :otp_attempt, "Verification code" %>
+      <%= form.text_field :otp_attempt, autocomplete:"one-time-code", inputmode: "numeric", class: "form-control", autofocus: true, required: true %>
+      <% unless resource.app_2fa_enabled? %>
+        <p id="send-otp" class="text-blue-700 hover:text-blue-500 float-right font-semibold cursor-pointer mt-1" data-controller="settings" data-action="click->settings#resendOtp" data-resend="true"><%= t "users.two_factor.verify_phone.resend_code" %></p>
+        <p id="otp-sent" class="text-green-700 hover:text-green-500 float-right font-semibold mt-1 hidden">Code sent</p>
+        <p id="otp-timer" class="text-blue-700 hover:text-blue-500 float-right font-semibold mt-1 hidden">0:57</p>
+      <% end %>
+    </div>
+    <div>
+      <%= form.submit t('users.two_factor.submit'), class: "btn btn-primary btn-expanded" %>
+    </div>
+  <% end %>
+<% end %>
+<%= render "devise/shared/form_block" %>

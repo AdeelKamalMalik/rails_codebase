@@ -1,0 +1,10 @@
+.skeleton {
+  height: 32px;
+  width: 97px;
+  display: inline-block;
+}
+
+.skeleton.vendor-icon {
+  height: 40px;
+  width: 40px;
+}

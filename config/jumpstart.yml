@@ -1,0 +1,21 @@
+---
+application_name: Contractful
+business_name: Contractful, LLC
+business_address: 
+domain: dev.contractful.co
+support_email: support@contractful.co
+default_from_email: Contractful <no-reply@contractful.co>
+background_job_processor: sidekiq
+email_provider: postmark
+personal_accounts: false
+apns: false
+fcm: false
+integrations:
+omniauth_providers:
+payment_processors:
+- stripe
+multitenancy:
+gems:
+- acts_as_tenant
+- rack-attack
+- whenever

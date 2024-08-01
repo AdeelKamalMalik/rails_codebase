@@ -1,0 +1,96 @@
+<% classes = "block py-0.5 px-2 -mx-2 rounded no-underline text-gray-800 dark:text-gray-200 hover:bg-gray-100 hover:text-gray-800 dark:text-gray-100 dark:hover:text-gray-200 dark:hover:bg-gray-800" %>
+<% active_class = "bg-gray-200 dark:bg-gray-700" %>
+<% inactive_class = "" %>
+
+<div class="p-8 sm:fixed sm:w-[300px] sm:h-screen sm:overflow-scroll shrink-0 text-sm font-medium">
+  <%= link_to root_path, class: "block" do %>
+    <%= render_svg "jumpstart-docs-logo", styles: "text-gray-500 dark:text-gray-200" %>
+  <% end %>
+
+  <%= link_to "Back to the app", main_app.root_path, class: "block text-sm mt-4 py-1 text-gray-900 dark:text-gray-50" %>
+  <%= link_to "Configuration", root_path, class: "block text-sm py-1 text-gray-900 dark:text-gray-50", target: :_blank %>
+
+  <% nav = {
+    "Get Started" => [
+      ["Installation", installation_docs_path],
+      ["Configuration", configuration_docs_path],
+      ["Screencasts", screencasts_docs_path],
+      ["Upgrading", upgrading_docs_path],
+      ["Deploying", deploying_docs_path],
+    ],
+    "Users" => [
+      ["Authentication & OAuth", authentication_docs_path],
+      ["Accounts & Teams", accounts_docs_path],
+      ["Roles", roles_docs_path],
+      ["Billing", billing_docs_path],
+      ["Multitenancy", multitenancy_docs_path],
+    ],
+    "Payments" => [
+      ["Subscriptions", subscriptions_docs_path],
+      ["One-time Payments", one_time_payments_docs_path],
+    ],
+    "Backend" => [
+      ["Admin", admin_docs_path],
+      ["Announcements", announcements_docs_path],
+      ["Cron & Scheduled Jobs", cron_docs_path],
+      ["Email", email_docs_path],
+      ["Integrations", integrations_docs_path],
+      ["Notifications", notifications_docs_path],
+      ["Scaffolds", scaffolds_docs_path],
+    ],
+    "Rails" => [
+      ["ActionCable", action_cable_docs_path],
+      ["ActionMailbox", action_mailbox_docs_path],
+      ["ActionText", action_text_docs_path],
+      ["ActiveJob", background_workers_docs_path],
+      ["ActiveStorage", active_storage_docs_path],
+      ["ActiveRecord", databases_docs_path],
+      ["Internationalization (I18n)", i18n_docs_path],
+      ["Credentials", credentials_docs_path],
+    ],
+    "API" => [
+      ["API Endpoints", api_docs_path],
+      ["API Clients", api_clients_docs_path],
+    ],
+    "Frontend" => [
+      ["Branding", branding_docs_path],
+      ["JavaScript", javascript_docs_path],
+      ["TailwindCSS", tailwind_docs_path],
+      ["Typography", typography_docs_path],
+    ],
+    "Components" => [
+      ["Alerts & Notices", alerts_docs_path],
+      ["Buttons", buttons_docs_path],
+      ["Cards", cards_docs_path],
+      ["Clipboard", clipboard_docs_path],
+      ["Forms", forms_docs_path],
+      ["Icons", icons_docs_path],
+      ["Modals", modals_docs_path],
+      ["Pagination", pagination_docs_path],
+      ["Pills", pills_docs_path],
+      ["Tabs", tabs_docs_path],
+      ["Tooltips", tooltips_docs_path],
+      ["Slideover", slideover_docs_path],
+      ["Wells", wells_docs_path],
+    ],
+    "Next Steps" => [
+      ["Business", business_docs_path],
+    ],
+    "Turbo Native" => [
+      ["Existing Apps", existing_apps_docs_path],
+    ]
+  } %>
+
+  <%= select_tag nil, grouped_options_for_select(nav, request.path), class: "sm:hidden", onchange: "Turbo.visit(this.selectedOptions[0].value)" %>
+
+  <div class="hidden sm:block">
+    <% nav.each do |section, links| %>
+      <h4 class="mt-4 font-semibold mb-1 text-gray-800 dark:text-gray-200"><%= section %></h4>
+      <ul class="ml-4 list-none leading-loose">
+        <% links.each do |title, url| %>
+          <li><%= nav_link_to title, url, class: classes, active_class: active_class, inactive_class: inactive_class %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>

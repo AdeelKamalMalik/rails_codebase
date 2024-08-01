@@ -1,0 +1,21 @@
+<%# Place any links for the RIGHT side of the nav bar here. Be sure to add class: "nav-link" to each item for proper spacing. %>
+
+<% if current_user && (current_page?(root_path) || current_page?(account_settings_path)) %>
+  <div class="upgrade-info flex items-center gap-3 <%= current_user.contract_limit_reached? ? '' : 'hidden' %>">
+    <% contract_limit = current_user.contracts_upload_limit %>
+    <div class='inline-flex items-center'>
+      <%= render_svg "icons/warning-icon", styles: "mr-2" %> <p class="text-gray-500">You’ve reached your contract (<%= contract_limit %>/<%=contract_limit %>) limit</p>
+    </div>
+    <div class='inline-flex btn btn-primary nav-link text-white hover:text-white text-sm p-5' data-controller="settings" data-action="click->settings#openModal" data-modal-id="upgradeModal" data-subscribed-plan="<%= current_user.subscribed_plan&.name %>">
+      <%= render_svg "icons/upgrade_icon", styles: "mr-2" %> Upgrade
+    </div>
+  </div>
+  <% unless current_user.contract_limit_reached? %>
+    <%= link_to(download_csv_contracts_path(format: :csv), class: 'inline-flex btn btn-white hover:bg-white rounded-lg shadow nav-link text-blue-700 hover:text-blue-700 text-sm dark:text-blue-700') do %>
+      <%= render_svg "icons/download", styles: "mr-2" %> Download as CSV
+    <% end %>
+    <div class='inline-flex btn btn-primary nav-link text-white hover:text-white text-sm p-5' data-controller="settings" data-action="click->settings#openModal" data-modal-id="newContract">
+      <%= render_svg "icons/plus", styles: "mr-2" %> New Contract
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,26 @@
+#dashboard .filters .df-select + .select2-container .select2-selection--single, .df-select {
+  border-radius: 4px !important;
+  height: 40px !important;
+  border: 1px solid #DFE4EA !important;
+}
+.df-select {
+  margin-top: 0 !important;
+  padding-left: 8px !important;
+  padding-right: 9px !important;
+  background-position: right 0.1rem center !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+}
+.df-select2-dropdown {
+  margin-top: 10px;
+  border-radius: 4px;
+  width: 178px !important;
+  padding: 10px 0;
+}
+
+.select2-selection__arrow {
+  margin-top: 6px !important;
+}
+
+.contract-file-status.review_needed:hover {
+  cursor: pointer;
+}

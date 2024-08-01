@@ -1,0 +1,54 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+/*
+ * Jumpstart Pro default styles
+ * Remove these if you'd like to use TailwindUI which expects a clean slate
+*/
+@import "components/base";
+@import "components/actiontext";
+@import "components/alert";
+@import "components/animation";
+@import "components/announcements";
+@import "components/avatars";
+@import "components/buttons";
+@import "components/code";
+@import "components/connected_accounts";
+@import "components/direct_uploads";
+@import "components/docs";
+@import "components/forms";
+@import "components/icons";
+@import "components/iframe";
+@import "components/nav";
+@import "components/pagination";
+@import "components/strada";
+@import "components/tabs";
+@import "components/trix";
+@import "components/typography";
+@import "components/util";
+@import "components/braintree";
+
+@import "tailwindcss/utilities";
+
+@import "flatpickr/dist/flatpickr.css";
+@import "tippy.js/dist/tippy.css";
+@import "tom-select/dist/css/tom-select.css";
+@import "contract.scss";
+@import "vendor.css";
+@import "dashboard.css";
+@import "tippy-theme.css";
+
+#add_phone_country_code {
+  border: none !important;
+  width: 100px !important;
+  --tw-shadow: none;
+  height: 30px;
+
+  margin-bottom: 12px;
+  padding-right: 0px !important;
+  padding-left: 25px;
+  margin-left: 2px;
+  background-position: right 0.2rem bottom .3rem;
+  background-size: 1.1em 1.1em;
+  color: #9CA3AF;
+}

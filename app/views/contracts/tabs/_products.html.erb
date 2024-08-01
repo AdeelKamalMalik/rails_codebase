@@ -1,0 +1,24 @@
+<div class="w-full px-6 mt-8 mb-24" data-controller="products">
+  <div class="flex items-center gap-4 pb-10 border-b flex-wrap">
+    <% contract.products.each do |p| %>
+      <%next unless p.name.present?%>
+      <div class="font-semibold whitespace-nowrap text-sm py-1 px-4 border rounded-lg text-blue-700 bg-sky-50 border-sky-200" data-action="click->products#focusProduct" data-product-id="product_<%= p.id %>">
+        <%= p.name %>
+      </div>
+    <% end %>
+    <button class="text-blue-700 font-semibold hover:text-blue-500" type="button" data-action="products#add">New Product</button>
+  </div>
+
+  <template data-products-target="template">
+    <%= f.fields_for :products, Product.new, child_index: 'NEW_RECORD' do |product_fields| %>
+      <%= render "products/form", f: product_fields %>
+    <% end %>
+  </template>
+  <div data-products-target="target"></div>
+
+  <%= f.fields_for :products do |product_fields| %>
+    <div class="animate-fade-ubsp" id="<%= contract.id %>_products">
+      <%= render 'products/form', f: product_fields %>
+    </div>
+  <% end %>
+</div>

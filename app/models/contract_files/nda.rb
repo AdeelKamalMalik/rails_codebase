@@ -1,0 +1,2 @@
+class Nda < ContractFile
+end

@@ -1,0 +1,92 @@
+<div class="flex">
+  <div class="w-1/5 px-4 py-12 sm:px-6 lg:px-8 h-screen hidden md:block">
+    <nav class="flex justify-center" aria-label="Progress">
+      <ol role="list" class="space-y-6 list-none">
+        <li>
+          <a class="cursor-pointer flex items-start" aria-current="step">
+          <span class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center" aria-hidden="true">
+          <span class="absolute h-4 w-4 rounded-full bg-indigo-200"></span>
+          <span class="relative block h-2 w-2 rounded-full bg-indigo-600"></span>
+          </span>
+          <span class="ml-3 text-sm font-medium text-blue-700">Privacy & Security</span>
+          </a>
+        </li>
+        <li>
+          <% if current_user.how_heard_about_us.present? && current_user.role.present? && current_user.owned_accounts&.all? { |account| account.name.present? } %>
+            <%= link_to profile_information_user_onboarding_path, class: "cursor-pointer group flex items-start text-sm font-medium text-gray-500 hover:text-blue-500" do %>
+              <span class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center">
+                <div class="h-2 w-2 rounded-full bg-gray-300"></div>
+              </span>
+              <span class="ml-3">Profile Information</span>
+            <% end %>
+          <% else %>
+            <span class="flex items-start text-sm font-medium text-gray-500">
+              <span class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center">
+                <div class="h-2 w-2 rounded-full bg-gray-300"></div>
+              </span>
+              <span class="ml-3">Profile Information</span>
+            </span>
+          <% end %>
+        </li>
+        <li>
+          <% if current_user.how_heard_about_us.present? && current_user.role.present? && current_user.owned_accounts&.all? { |account| account.name.present? } %>
+            <%= link_to how_it_works_user_onboarding_path, class: "cursor-pointer group flex items-start text-sm font-medium text-gray-500 hover:text-blue-500" do %>
+              <span class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center">
+                <div class="h-2 w-2 rounded-full bg-gray-300"></div>
+              </span>
+              <span class="ml-3">How it works</span>
+            <% end %>
+          <% else %>
+            <span class="flex items-start text-sm font-medium text-gray-500">
+              <span class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center">
+                <div class="h-2 w-2 rounded-full bg-gray-300"></div>
+              </span>
+              <span class="ml-3">How it works</span>
+            </span>
+          <% end %>
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <div class="md:w-4/5 w-full px-4 pb-12 sm:px-6 rounded-lg m-5 md:px-8 bg-gray-50">
+    <div class="sm:flex py-12 lg:ml-8">
+      <div class="mb-4 flex justify-center items-center flex-shrink-0 sm:mb-0 sm:mr-4 h-[64px] w-[64px] bg-white border rounded-lg">
+        <%= image_tag "icons/lock.svg", size: '36.25x36.25', class: '' %>
+      </div>
+      <div>
+        <h4 class="text-lg font-bold">Data Protection</h4>
+        <p class="mt-1 w-full lg:w-[490px]">We ensure the highest level of security for your data through end-to-end encryption and secure storage solutions. Access is strictly limited to you and those you have authorized, safeguarding your information from unauthorized use.</p>
+      </div>
+    </div>
+
+    <div class="sm:flex pb-12 lg:ml-8">
+      <div class="mb-4 flex justify-center items-center flex-shrink-0 sm:mb-0 sm:mr-4 h-[64px] w-[64px] bg-white border rounded-lg">
+        <%= image_tag "icons/cloud.svg", size: '36.25x36.25', class: '' %>
+      </div>
+      <div>
+        <h4 class="text-lg font-bold">Privacy Commitment</h4>
+        <p class="mt-1 w-full lg:w-[490px]">Your privacy is our top priority. We collect and utilize data with complete transparency, strictly adhering to rigorous data protection laws to ensure your personal information remains protected.</p>
+      </div>
+    </div>
+
+     <div class="sm:flex pb-12 lg:ml-8">
+      <div class="mb-4 flex justify-center items-center flex-shrink-0 sm:mb-0 sm:mr-4 h-[64px] w-[64px] bg-white border rounded-lg">
+        <%= image_tag "icons/user-control.svg", size: '36.25x36.25', class: '' %>
+      </div>
+      <div>
+        <h4 class="text-lg font-bold">Security and User Control</h4>
+        <p class="mt-1 w-full lg:w-[490px]">Our platform is engineered with robust security protocols to provide maximum protection. We empower you with comprehensive control over your data, ensuring you can manage your privacy and data rights effectively.</p>
+      </div>
+    </div>
+
+    <footer class="flex justify-between sticky items-center top-[100vh]">
+      <div class="flex">
+        <p class="text-medium text-[#64748B] md:mr-6 mr-0">@2024 Contractful</p>
+        <a class="font-medium font-semibold underline" href="https://contractful.co/terms/privacy" target="_blank">Privacy Policy</a>
+      </div>
+
+      <%= link_to "I understand #{(image_tag 'icons/arrow-left.svg', class: 'ml-3 text-sm')}".html_safe, profile_information_user_onboarding_path, class: "btn btn-primary px-6" %>
+    </footer>
+  </div>
+</div>

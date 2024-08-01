@@ -1,0 +1,2 @@
+class Eula < ContractFile
+end

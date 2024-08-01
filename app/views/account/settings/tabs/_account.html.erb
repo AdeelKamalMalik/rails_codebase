@@ -1,0 +1,133 @@
+<table class="table-auto w-full">
+  <tr class="h-16 border-b">
+    <td class="font-semibold">Name</td>
+    <td class="w-1/4">
+      <span id="name"> <%= current_user.name %></span>
+      <input type="text"
+        name="name"
+        class="form-control hidden"
+        id="name-input"
+        data-action="keyup.enter->settings#update"
+        data-field-name="name"
+        value="<%= current_user.name %>"
+      >
+    </td>
+    <td class="font-semibold cursor-pointer text-blue-700 text-right"
+    data-action="click->settings#edit" id="name-update" data-field-name="name"
+    >Update</td>
+  </tr>
+  <tr class="h-16 border-b">
+    <td class="font-semibold">Email</td>
+    <td>
+      <span id="email"><%= current_user.email %></span>
+      <input type="text"
+        name="email"
+        class="form-control hidden"
+        id="email-input"
+        data-action="keyup.enter->settings#update"
+        data-field-name="email"
+        value="<%= current_user.email %>"
+      >
+      <p class="text-sm mt-1 text-red-600 hidden" id="email-error">Please check your email and follow the confirm link to confirm your new email address.</p>
+    </td>
+    <td class="font-semibold cursor-pointer text-blue-700 text-right"
+    data-action="click->settings#edit" data-field-name="email" id="email-update">Update</td>
+  </tr>
+  <tr class="h-16 border-b">
+    <td class="font-semibold">Password</td>
+    <td class="w-1/4">
+      <span id="password">*******************</span>
+      <input type="text"
+        name="password"
+        class="form-control hidden"
+        id="password-input"
+        data-action="keyup.enter->settings#update"
+        data-field-name="password"
+        value="<%= current_user.password %>"
+      >
+    </td>
+    <td class="font-semibold cursor-pointer text-blue-700 text-right"
+    data-action="click->settings#openModal" data-modal-id="passwordModal">Update</td>
+  </tr>
+  <tr class="h-16 border-b">
+    <td class="font-semibold">Role</td>
+    <td class="w-1/4">
+      <span id="role"> <%= current_user.role %></span>
+      <input type="text"
+        name="role"
+        class="form-control hidden"
+        id="role-input"
+        data-action="keyup.enter->settings#update"
+        data-field-name="role"
+        value="<%= current_user.role %>"
+      >
+    </td>
+    <td class="font-semibold cursor-pointer text-blue-700 text-right"
+    data-action="click->settings#edit" id="role-update" data-field-name="role"
+    >Update</td>
+  </tr>
+  <tr class="h-16 border-b">
+    <td class="font-semibold">Company Name</td>
+    <td class="w-1/4">
+      <span id="companyName"><%= current_account&.name %></span>
+      <input type="text"
+        name="companyName"
+        class="form-control hidden"
+        id="companyName-input"
+        data-action="keyup.enter->settings#update"
+        data-field-name="companyName"
+        data-account-id="<%= current_account.id %>"
+        value="<%= current_account&.name %>"
+      >
+    </td>
+    <td class="font-semibold cursor-pointer text-blue-700 text-right" data-field-name="companyName" data-action="click->settings#edit" id="companyName-update">Update</td>
+  </tr>
+  <tr class="h-16 border-b">
+    <td class="font-semibold">Alternative Company Name</td>
+    <td class="w-1/4">
+      <span id="alternativeCompanyName"><%= current_account&.alternative_name %></span>
+      <input type="text"
+        name="alternativeCompanyName"
+        class="form-control hidden"
+        id="alternativeCompanyName-input"
+        data-action="keyup.enter->settings#update"
+        data-field-name="alternativeCompanyName"
+        data-account-id="<%= current_account.id %>"
+        value="<%= current_account&.alternative_name %>"
+      >
+    </td>
+    <td class="font-semibold cursor-pointer text-blue-700 text-right" data-field-name="alternativeCompanyName" data-action="click->settings#edit" id="alternativeCompanyName-update">Update</td>
+  </tr>
+  <tr class="h-16 border-b">
+    <td class="font-semibold">Company Website</td>
+    <td class="w-1/4">
+      <span id="companyWebsite"><%= current_account&.website %></span>
+       <input type="text"
+        name="companyWebsite"
+        class="form-control hidden"
+        id="companyWebsite-input"
+        data-action="keyup.enter->settings#update"
+        data-field-name="companyWebsite"
+        data-account-id="<%= current_account.id %>"
+        value="<%= current_account&.website %>"
+      >
+    </td>
+    <td class="font-semibold cursor-pointer text-blue-700 text-right" data-field-name="companyWebsite" data-action="click->settings#edit" id="companyWebsite-update">Update</td>
+  </tr>
+  <tr class="h-16 border-b">
+    <td class="font-semibold">Delete Account</td>
+    <td class="w-1/4">Please note all your data will be deleted</td>
+    <td>
+      <%= button_to "Delete Account", account_settings_path, method: :delete, form: {
+        data: {
+         turbo_confirm: "Delete your account?",
+          turbo_confirm_description: "Deleting your account is permanent and will cancel your subscription.<p class='mt-5'></p>
+           Write “delete”
+          ",
+          turbo_confirm_text: "delete",
+          turbo_confirm_button_text: "Delete account"
+         }
+        },form_class: "font-semibold text-red-500 cursor-pointer text-right" %>
+    </td>
+  </tr>
+</table>

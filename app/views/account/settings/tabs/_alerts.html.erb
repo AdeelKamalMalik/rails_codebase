@@ -1,0 +1,39 @@
+<p class="text-gray-700 dark:text-gray-300 font-semibold my-4 border-b border-gray-200 dark:border-gray-700 pb-2">Email Alerts</p>
+<table class="table-auto w-full">
+  <tr class="h-16 border-b">
+    <td class="font-semibold">
+      <div class="flex items-center" data-controller="settings">
+        <button data-action="click->settings#toggle" type="button" class="bg-gray-200 relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:text-blue-950 focus:ring-offset-2" role="switch" data-expiring-in="90" aria-checked="false" aria-labelledby="annual-billing-label" data-settings-target="button" data-alert-enabled="<%= current_user.alerts.find_by(expiring_in: 90)&.enabled? || false %>">
+        <span aria-hidden="true" class="translate-x-0 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out" data-settings-target="span"></span>
+        </button>
+        <span class="ml-3 text-sm" id="annual-billing-label">
+        <span class="font-medium text-gray-900 dark:text-white">Contract expiring in 90 days</span>
+        </span>
+      </div>
+    </td>
+  </tr>
+  <tr class="h-16 border-b">
+    <td class="font-semibold">
+      <div class="flex items-center" data-controller="settings">
+        <button data-expiring-in="30" data-action="click->settings#toggle" type="button" class="bg-gray-200 relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:text-blue-950 focus:ring-offset-2" role="switch" aria-checked="false" aria-labelledby="annual-billing-label" data-settings-target="button" data-alert-enabled="<%= current_user.alerts.find_by(expiring_in: 30)&.enabled? || false %>">
+        <span aria-hidden="true" class="translate-x-0 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out" data-settings-target="span"></span>
+        </button>
+        <span class="ml-3 text-sm" id="annual-billing-label">
+        <span class="font-medium text-gray-900 dark:text-white">Contract expiring in 30 days</span>
+        </span>
+      </div>
+    </td>
+  </tr>
+  <tr class="h-16 border-b">
+    <td class="font-semibold">
+      <div class="flex items-center" data-controller="settings">
+        <button data-expiring-in="7" data-action="click->settings#toggle" type="button" class="bg-gray-200 relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:text-blue-950 focus:ring-offset-2" role="switch" aria-checked="false" aria-labelledby="annual-billing-label" data-settings-target="button" data-alert-enabled="<%= current_user.alerts.find_by(expiring_in: 7)&.enabled? || false %>">
+        <span aria-hidden="true" class="translate-x-0 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out" data-settings-target="span"></span>
+        </button>
+        <span class="ml-3 text-sm" id="annual-billing-label">
+        <span class="font-medium text-gray-900 dark:text-white">Contract expiring in 1 Week</span>
+        </span>
+      </div>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,39 @@
+<div id="file-upload-progress-modal" :class="{'fixed bg-white right-5 bottom-5': true, 'hidden': $store.fileUploadProgressModal.hidden}" style="width: 318px;" x-data x-init="$el.__x = $data">
+  <%= select_tag "document_types", options_for_select(document_type_options), style: "width: 80px; height: 28px !important", class: "hidden dummy-document-type-select w-full bg-gray-50" %>
+  <div id="contract-file-row-template" class="hidden">
+    <%= render partial: 'shared/upload_modal_contract_file_entry', locals: { template: true } %>
+  </div>
+  <div :class="{'grid rounded-xl px-6 py-4 gap-3 max-h-[650px] min-h-[60px] h-auto text-left overflow-y-auto shadow-md border border-gray-200 progress-section': true, 'minimised': !$store.fileUploadProgressModal.expanded, 'pb-6': $store.fileUploadProgressModal.expanded}">
+    <div :class="{ 'flex justify-between items-center': true, 'pb-3': $store.fileUploadProgressModal.expanded }">
+      <div class="text-slate-500 text-sm font-semibold"> Recently Uploaded </div>
+      <div :class="{ 'actions inline-flex items-center': true, 'gap-3': !$store.fileUploadProgressModal.expanded }">
+        <div x-show="$store.fileUploadProgressModal.expanded" class="p-1 hover:cursor-pointer" @click="$store.fileUploadProgressModal.expanded = false">
+          <svg class="w-[16px] h-[16px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"/>
+          </svg>
+        </div>
+        <div x-show="!$store.fileUploadProgressModal.expanded" class="hover:cursor-pointer" @click="$store.fileUploadProgressModal.expanded = true">
+          <div class="text-sm font-semibold text-[#0B5CFF]">Open </div>
+        </div>
+        <div class="p-1 hover:cursor-pointer" @click="$store.fileUploadProgressModal.hideUploadStatusModal()">
+          <svg class="w-[16px] h-[16px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div x-show="$store.fileUploadProgressModal.expanded" x-transition.duration.500ms class="grid gap-3 overflow-x-hidden" id="files-container">
+      <% @files.each do |file| %>
+        <%= render partial: 'shared/upload_modal_contract_file_entry', locals: { file: file } %>
+      <% end %>
+    </div>
+    <p x-show="$store.fileUploadProgressModal.expanded" x-transition.duration.500ms class='flex items-center cursor-pointer text-sm font-semibold text-blue-700 hover:text-blue-500' data-controller="settings" data-action="click->settings#openModal" data-modal-id="newContract">
+      <%= render_svg "icons/plus-blue", styles: "mr-2 fill-current" %> Add Document
+    </p>
+  </div>
+  <% if false %>
+    <p class="mt-5 text-gray-500 text-sm px-2">
+      Key details from your contract have been extracted using AI. Review the contract details for accuracy.
+    </p>
+  <% end %>
+</div>

@@ -1,0 +1,2 @@
+class Sla < ContractFile
+end

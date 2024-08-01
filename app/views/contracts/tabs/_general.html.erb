@@ -1,0 +1,193 @@
+<div class="w-full px-8 mt-8 mb-24">
+  <div class="mb-5">
+    <div class="flex items-center mb-2 justify-start gap-2">
+      <%= f.label :name, "Contract Name", class: "text-sm font-medium text-black font-semibold" %>
+    </div>
+
+    <%= f.text_field :name, class: "border-gray-200 rounded-lg w-full h-12 text-gray-500", required: false, 'data-action': "change->contracts#preSubmitForm" %>
+  </div>
+  <div class="grid md:grid-cols-2 md:gap-6 mb-5">
+    <div>
+      <div class="flex items-center gap-2 mb-2">
+        <label for="start_date" class="text-sm font-medium text-black font-semibold">Start Date</label>
+      </div>
+      <div class="relative max-w-sm">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+          <%= image_tag "icons/calendar.svg" %>
+        </div>
+        <%= f.date_field :start_date, class: "px-10 border-gray-200 rounded-lg w-full h-12 text-gray-500", required: false, data: { controller: "flatpickr", flatpickr_month_selector_type: "static" }, "data-action": "change->contracts#preSubmitForm" %>
+      </div>
+    </div>
+    <div>
+      <div class="flex items-center mb-2 gap-2">
+        <label for="end_date" class="text-sm font-medium text-black font-semibold">End Date</label>
+      </div>
+      <div class="relative max-w-sm">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+          <%= image_tag "icons/calendar.svg" %>
+        </div>
+        <%= f.date_field :end_date, class: "px-10 border-gray-200 rounded-lg w-full h-12 text-gray-500", required: false, data: { controller: "flatpickr", flatpickr_month_selector_type: "static" }, "data-action": "change->contracts#preSubmitForm" %>
+      </div>
+    </div>
+  </div>
+  <div class="grid md:grid-cols-2 md:gap-6 mb-5">
+    <div>
+      <div class="flex items-center gap-2 mb-2">
+        <label for="auto_renewal" class="text-sm ring-gray-50 font-medium text-black font-semibold">Auto-Renewal</label>
+      </div>
+      <%= f.select :auto_renewal, options_for_select(boolean_options_with_empty, f.object.auto_renewal), {}, { class: 'h-12 select text-gray-500', required: false, "data-action": "change->contracts#preSubmitForm" } %>
+    </div>
+    <div>
+      <div class="flex items-center gap-2 mb-2">
+        <label for="renewal_date" class="text-sm font-medium text-black font-semibold">Renewal Date</label>
+      </div>
+      <div class="relative max-w-sm">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+          <%= image_tag "icons/calendar.svg" %>
+        </div>
+        <%= f.date_field :renewal_date, class: "px-10 border-gray-200 rounded-lg w-full h-12 text-gray-500", required: false, data: { controller: "flatpickr", flatpickr_month_selector_type: "static" }, "data-action": "change->contracts#preSubmitForm" %>
+      </div>
+    </div>
+  </div>
+  <div class="grid md:grid-cols-2 md:gap-6 mb-5">
+    <div>
+      <div class="flex items-center gap-2 mb-2">
+        <label for="total_cost" class="text-sm font-medium text-black font-semibold">Total Annual Contract Value</label>
+      </div>
+      <div class="relative mt-2 rounded-md shadow-sm">
+        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+          <span class="text-gray-500 sm:text-sm">$</span>
+        </div>
+        <%= f.number_field :total_cost, type: 'number', class: 'border-gray-200 pl-7 rounded-lg w-full h-12 text-gray-500', required: false, "data-action": "change->contracts#preSubmitForm" %>
+      </div>
+    </div>
+    <div>
+      <div class="flex items-center gap-2 mb-2">
+        <label for="annual_cost" class="text-sm font-medium text-black font-semibold">Annual Contract Value</label>
+      </div>
+      <div class="relative mt-2 rounded-md shadow-sm">
+        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+          <span class="text-gray-500 sm:text-sm">$</span>
+        </div>
+        <%= f.number_field :annual_cost, class: 'border-gray-200 pl-7 rounded-lg w-full h-12 text-gray-500', required: false, "data-action": "change->contracts#preSubmitForm" %>
+      </div>
+    </div>
+  </div>
+  <div class="grid md:grid-cols-2 md:gap-6 mb-5">
+    <div>
+      <div class="flex items-center gap-2 mb-2">
+        <label for="currency_code" class="text-sm font-medium text-black font-semibold">Currency</label>
+      </div>
+      <%= f.select :currency_code, options_for_select(currency_code_options, f.object.currency_code), {}, {class: 'h-12 currency-select text-gray-500', required: false, "data-action": "change->contracts#preSubmitForm" } %>
+    </div>
+
+    <div class="w-full">
+      <div class="flex items-center gap-2 mb-2">
+        <label for="purchase_order_required" class="text-sm font-medium text-black font-semibold">Purchase Order</label>
+      </div>
+      <%= f.select :purchase_order_required, options_for_select(boolean_options(labels: { yes: 'Required', no: 'Not Required' }), f.object.purchase_order_required), {}, { class: 'h-12 select text-gray-500', "data-action": "change->contracts#preSubmitForm" } %>
+    </div>
+  </div>
+  <div class="grid md:grid-cols-2 md:gap-6 mb-5">
+    <div>
+      <div class="flex items-center mb-2 gap-2">
+        <%= f.label :billing_interval, "Billing Terms", class: "text-sm font-medium text-black font-semibold" %>
+      </div>
+      <%= f.text_field :billing_interval, class: "border-gray-200 rounded-lg w-full h-12 text-gray-500", required: false, 'data-action': "change->contracts#preSubmitForm" %>
+    </div>
+    <div>
+      <div class="flex items-center mb-2 gap-2">
+        <%= f.label :payment_terms, "Payment Terms", class: "text-sm font-medium text-black font-semibold" %>
+      </div>
+      <%= f.text_field :payment_terms, class: "border-gray-200 rounded-lg w-full h-12 text-gray-500", required: false, 'data-action': "change->contracts#preSubmitForm" %>
+    </div>
+  </div>
+  <div class="grid md:grid-cols-2 md:gap-6 mb-5">
+    <div>
+      <div class="flex items-center gap-2 mb-2">
+        <label for="marketing_clause" class="text-sm font-medium text-black font-semibold">Marketing Clause</label>
+      </div>
+      <%= f.select :marketing_clause, options_for_select(boolean_options_with_empty, f.object.marketing_clause), {}, {class: 'h-12 select text-gray-500', required: false, "data-action": "change->contracts#preSubmitForm" } %>
+    </div>
+
+    <div class="w-full">
+      <div class="flex items-center gap-2 mb-2">
+        <label for="vendor_id" class="text-sm font-medium text-black font-semibold">Vendor Name</label>
+      </div>
+      <%= f.select :vendor_id, options_for_select(current_user.vendors.all.map{|x| [x.name, x.id]}, f.object.vendor_id), {}, { class: 'h-12 vendor_id text-gray-500 w-full', id: 'vendor_id', "data-action": "change->contracts#preSubmitForm" } %>
+    </div>
+  </div>
+  <div class="grid md:grid-cols-2 md:gap-6 mb-5">
+    <div>
+      <div class="flex items-center mb-2 gap-2">
+        <%= f.label :order_number, "Order #", class: "text-sm font-medium text-black font-semibold" %>
+      </div>
+    <%= f.text_field :order_number, class: "border-gray-200 rounded-lg w-full h-12 text-gray-500", required: false, 'data-action': "change->contracts#preSubmitForm" %>
+    </div>
+    <div>
+      <div class="flex items-center mb-2 gap-2">
+        <%= f.label :status, class: "text-sm font-medium text-black font-semibold" %>
+      </div>
+      <%= f.select :status, options_for_select(status_options, f.object.status), {}, { class: 'h-12 select text-gray-500', required: false, 'data-action': "change->contracts#preSubmitForm" } %>
+    </div>
+  </div>
+
+  <%# <div class="text-blue-700 font-semibold">Add Field</div> %>
+  <% if f.object.persisted? %>
+    <div id="documents-section" class="w-full mt-16 border-b pb-3">
+      <div class="flex justify-between">
+        <div class="text-black font-bold">Documents</div>
+        <div class="text-gray-500 text-sm">Created on <%= datetime_display(f.object.created_at) %> </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="mt-5 relative">
+    <div class="grid md:grid-cols-2 md:gap-6 mb-5">
+      <div>
+        <div class="flex items-center gap-2 mb-2">
+          <label for="names" class="text-sm font-medium text-black">Name</label>
+        </div>
+      </div>
+      <div>
+        <div class="flex items-center gap-2 mb-2">
+          <label for="types" class="text-sm font-medium text-black">Type</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 md:gap-6 mb-5 <%= 'max-h-80 overflow-y-auto' if f.object.contract_files&.count > 4 %>">
+      <% f.object.contract_files.each do |contract_file| %>
+        <div lass="flex items-center gap-2">
+          <%= link_to contract_file.file.filename.to_s, rails_blob_path(contract_file.file, disposition: "attachment"), class: 'btn btn-link underline truncate max-w-full p-0' %>
+          <p class="text-sm text-gray-500">ID: <%= contract_file.id %></p>
+        </div>
+        <div class="flex items-center gap-2" data-controller="dropdown">
+          <%= f.select "document_types#{contract_file.id}", options_for_select(document_type_options, contract_file.type), {}, { class: 'h-12 contract-file-type-select w-full', required: false, data: { 'action': "change->contracts#preSubmitForm", 'file-id': contract_file.id, 'document-type': contract_file.type } } %>
+          <div>
+            <button type="button" class="flex items-center" aria-expanded="true" aria-haspopup="true" data-action="click->dropdown#toggle click@window->dropdown#hide">
+              <%= image_tag "icons/horizontal-three-dots.svg" %>
+            </button>
+          </div>
+          <%= render 'contracts/edit_document_options', contract_file: contract_file, vendor: f.object.vendor %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <label for="contact_id" class="mb-2 text-sm font-medium text-black font-semibold">Contract ID</label>
+    <div class="relative">
+      <input type="text" id="contact_id" disabled readonly class="border-gray-200 rounded-lg w-full h-12 text-gray-500" value="<%= contract.public_id %>" />
+      <div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+        data-controller="clipboard" data-clipboard-text="<%= contract.public_id %>"
+        >
+        <div class="text-gray-500 mr-2">Copy</div>
+        <%= image_tag 'icons/copy.svg', size: '16x16' %>
+      </div>
+    </div>
+  </div>
+  <div class="flex items-center gap-3 my-6 cursor-pointer">
+    <%= image_tag 'icons/bin.svg', size: '16x16' %>
+    <%= link_to contract.archived? ? 'Unarchive Contract' : 'Archive Contract', contract.archived? ? unarchive_contract_path(contract) : archive_contract_path(contract), class: 'text-red-600 hover:text-red-700 font-semibold' %>
+  </div>
+</div>
