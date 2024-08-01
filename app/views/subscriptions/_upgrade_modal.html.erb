@@ -1,0 +1,51 @@
+<div class="relative z-10 hidden" id="upgradeModal" aria-labelledby="modal-title" role="dialog" aria-modal="true" data-controller="settings">
+  <div class="fixed inset-0 bg-gray-100 bg-opacity-75 transition-opacity"></div>
+  <div class="fixed inset-0 z-10 w-screen overflow-y-auto border">
+    <div class="flex min-h-full justify-center p-4 text-center items-center sm:p-0">
+      <div class="grid relative transform overflow-hidden rounded-lg bg-white px-6 py-9 text-left transition-all sm:my-8 sm:w-[100%] md:w-[531px] border rounded-xl gap-6">
+        <div class="grid content gap-6">
+          <div class="relative h-[240px] overflow-hidden rounded-lg">
+            <img src="<%= asset_path('upgrade-modal-image.png') %>" class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rounded-lg" alt="Upgrade Modal Image">
+          </div>
+          <% if current_user.without_any_subscription? || current_user.other_plan? %>
+            <div class="grid plan-details gap-1.5">
+              <h5 class="text-base font-semibold">Upgrade to Business Plan</h5>
+              <p class="text-sm font-normal text-gray-500 ">Purchase a Business plan to upload up to 15 contracts, using powerful features, like AI smart uploads, contract expiry alerts, enhanced support, and more.</p>
+            </div>
+            <div class="grid plan-features">
+              <p class="text-sm font-semibold leading-7 text-gray-500">✔️  15 Contracts</p>
+              <p class="text-sm font-semibold leading-7 text-gray-500">✔️  AI-Smart Uploads</p>
+              <p class="text-sm font-semibold leading-7 text-gray-500">✔️  Contract Expiry Alerts</p>
+              <p class="text-sm font-semibold leading-7 text-gray-500">✔️  Enhanced Support</p>
+            </div>
+          <% elsif current_user.business_plan? %>
+            <div class="grid plan-details gap-1.5">
+              <h5 class="text-base font-semibold">Upgrade to Enterprise Plan</h5>
+              <p class="text-sm font-normal text-gray-500 ">Purchase a Enterprise plan to upload up to unlimited contracts, using powerful features, like AI smart uploads, contract expiry alerts, enhanced support, and more.</p>
+            </div>
+            <div class="grid plan-features">
+              <p class="text-sm font-semibold leading-7 text-gray-500">✔️  Unlimited Contracts</p>
+              <p class="text-sm font-semibold leading-7 text-gray-500">✔️  AI-Smart Uploads</p>
+              <p class="text-sm font-semibold leading-7 text-gray-500">✔️  Contract Expiry Alerts</p>
+              <p class="text-sm font-semibold leading-7 text-gray-500">✔️  Enhanced Support</p>
+            </div>
+          <% end %>
+        </div>
+        <div class="button-group">
+          <div class="form-group flex justify-end mb-0">
+            <button data-controller="settings" data-action="click->settings#closeModal" data-modal-id="upgradeModal" class="btn btn-white mr-2">Maybe later</button>
+            <% if current_user.accounts&.first&.subscriptions.any? %>
+              <a class="btn btn-primary mr-2" href="/subscriptions/<%= current_user.accounts.first.subscriptions.first.prefix_id %>/edit">
+                Upgrade
+              </a>
+            <% else %>
+              <a class="btn btn-primary mr-2" href="/pricing">
+                Upgrade
+              </a>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

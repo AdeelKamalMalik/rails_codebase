@@ -1,0 +1,52 @@
+<div class="rounded-lg p-5 text-left shadow-md border border-gray-200">
+  <div class="flex justify-between items-center">
+    <h4 class=" text-gray-900 whitespace-nowrap"><%= pluralize(contract.contract_files.count, 'Document') %></h4>
+    <div class="flex gap-3 cursor-pointer">
+      <button 
+        x-data x-on:click="edit = 'general-<%= contract.id %>';
+          $nextTick(() => {
+            document.getElementById('documents-section')?.scrollIntoView({ behavior: 'smooth' });
+          })" 
+        data-action="click->contracts#toggleCanvas" type="button" 
+        class="flex items-center gap-3 text-blue-700 font-semibold hover:text-blue-500" 
+        data-contract-id="<%= contract.id %>">
+        <%= image_tag "icons/edit.svg" %> Edit
+      </button>
+    </div>
+  </div>
+  <div class="<%= 'max-h-60 overflow-y-auto' if contract.contract_files&.count > 3 %>" >
+    <% contract.contract_files.each do |file| %>
+      <div class="flex items-center  mt-7 border-b pb-4 gap-2">
+        <% if file.analyzing? %>
+          <%= file_status_badge(file) %>
+          <div class="text-slate-500 truncate"><%= file.file.filename.to_s %></div>
+        <% else %>
+          <div class="document-type text-slate-500 w-8 font-semibold hover:cursor-pointer mr-8 ml-4" data-document-type="<%= file.type %>" ><%= file.type.upcase %></div>
+
+          <%= select_tag "document_types#{file.id}", options_for_select(document_type_options, file.type), data: { 'file-id': file.id }, style: "width: 80px; height: 28px !important", class: "hidden document-type-select w-full bg-gray-50 mr-1"%>
+          
+          <div class="flex gap-2" data-controller="dropdown">
+            <%= link_to file.file.filename.to_s, rails_blob_path(file.file, disposition: "attachment"), class: 'btn btn-link text-base underline truncate w-[250px]' %>
+
+            <button type="button" class="flex items-center pl-4 w-12" aria-expanded="true" aria-haspopup="true" data-action="click->dropdown#toggle click@window->dropdown#hide">
+              <%= image_tag "icons/horizontal-three-dots.svg" %>
+            </button>
+            <%= render 'contracts/edit_document_options', contract_file: file, vendor: contract.vendor %>     
+          </div>
+        <% end %>
+
+        <span class="hidden redis-id"><%= "contract-#{file.contract.public_id}-#{file.id}" %></span>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <p class='flex items-center cursor-pointer text-blue-700 hover:text-blue-500 p-5 mt-4 mb-3' data-controller="settings" data-action="click->dropdown#toggle click->settings#openModal" data-modal-id="newContract" data-source-type="document" data-resource-id="<%= contract.public_id %>">
+      <%= render_svg "icons/plus-blue", styles: "mr-2 fill-current" %> Add Document
+    </p>
+  </div>
+</div>
+<% if info_text %>
+  <p class="mt-5 text-gray-500 text-sm px-2">
+    Key details from your contract have been extracted using AI. Review the contract details for accuracy.
+  </p>
+<% end %>

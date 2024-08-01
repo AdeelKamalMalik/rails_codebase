@@ -1,0 +1,12 @@
+<div id="con-<%=contract.id %>" >
+  <div x-show="edit === 'general-<%= contract.id %>'" class="w-full h-auto contract-single">
+    <%= form_with model: contract, data: { controller: 'nested-form select2', nested_form_wrapper_selector_value: '.nested-form-wrapper' }, id: "con-#{contract.id}-fields" do |f| %>
+      <%= render 'contracts/tabs/general', f: f, contract: contract %>
+    </div>
+  <% end %>
+  <div x-show="edit === 'products-<%= contract.id %>'" class="w-full h-auto products-single">
+    <%= form_with  model: contract, data: { controller: 'nested-form select2', nested_form_wrapper_selector_value: '.nested-form-wrapper-1' }, id: "con-#{contract.id}-products-fields" do |f| %>
+      <%= render "contracts/tabs/products", f: f, contract: contract %>
+    </div>
+  <% end %>
+</div>

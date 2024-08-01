@@ -1,0 +1,2 @@
+class Of < ContractFile
+end

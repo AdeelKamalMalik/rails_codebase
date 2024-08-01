@@ -1,0 +1,8 @@
+contract_expiring_alert_job:
+  cron: "0 1 * * *"
+  class: "ContractExpiringAlertJob"
+  queue: default
+process_analysed_documents_job:
+  cron: "* * * * *"
+  class: "ProcessAnalysedDocumentsJob"
+  queue: default

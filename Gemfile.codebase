@@ -1,0 +1,74 @@
+# Add dependencies for your application in the main Gemfile
+
+# Jumpstart Pro dependencies
+gem "administrate", github: "excid3/administrate", branch: "jumpstart"
+gem "administrate-field-active_storage", "~> 1.0.0"
+gem "country_select", "~> 8.0"
+gem "cssbundling-rails", "~> 1.3.1"
+gem "devise", github: "excid3/devise", branch: "sign-in-after-reset-password-proc" # "~> 4.9.0"
+gem "devise-i18n", "~> 1.10"
+gem "inline_svg", "~> 1.6"
+gem "invisible_captcha", "~> 2.0"
+gem "jsbundling-rails", "~> 1.2.1"
+gem "jumpstart", path: "lib/jumpstart", group: :omit
+gem "local_time", "~> 2.1"
+gem "name_of_person", "~> 1.0"
+gem "noticed", "~> 1.5"
+gem "pagy", "~> 6.0"
+gem "pay", "~> 7.1"
+gem "prawn", github: "prawnpdf/prawn"
+gem "prefixed_ids", "~> 1.2"
+gem "pretender", "~> 0.4"
+gem "pundit", "~> 2.1"
+gem "receipts", "~> 2.1"
+gem "rotp", "~> 6.2"
+gem "rqrcode", "~> 2.1"
+gem "ruby-oembed", "~> 0.16.0", require: "oembed"
+
+# Optional dependencies based on Jumpstart config
+require_relative "lib/jumpstart/lib/jumpstart/configuration"
+
+gem "acts_as_tenant", "~> 1.0" if Jumpstart.config.gems.include?("acts_as_tenant")
+gem "oj", "~> 3.8" if Jumpstart.config.gems.include?("oj")
+gem "rack-attack", "~> 6.6" if Jumpstart.config.gems.include?("rack-attack")
+gem "whenever", "~> 1.0", require: false if Jumpstart.config.gems.include?("whenever")
+
+omniauth_providers = Jumpstart.config.omniauth_providers
+gem "omniauth", "~> 2.1" if omniauth_providers.any?
+gem "omniauth-rails_csrf_protection", "~> 1.0" if omniauth_providers.any?
+gem "omniauth-twitter", github: "excid3/omniauth-twitter" if omniauth_providers.include?("twitter")
+gem "omniauth-facebook", github: "excid3/omniauth-facebook" if omniauth_providers.include?("facebook")
+gem "omniauth-github" if omniauth_providers.include?("github")
+gem "omniauth-google-oauth2" if omniauth_providers.include?("google-oauth2")
+gem "omniauth-microsoft_graph" if omniauth_providers.include?("microsoft_graph")
+
+# Integrations
+gem "airbrake" if Jumpstart.config.airbrake?
+gem "appsignal" if Jumpstart.config.appsignal?
+gem "bugsnag" if Jumpstart.config.bugsnag?
+gem "convertkit-ruby", github: "excid3/convertkit-ruby", require: "convertkit" if Jumpstart.config.convertkit?
+gem "drip-ruby", require: "drip" if Jumpstart.config.drip?
+gem "honeybadger" if Jumpstart.config.honeybadger?
+gem "intercom-rails" if Jumpstart.config.intercom?
+gem "gibbon" if Jumpstart.config.mailchimp?
+gem "rollbar" if Jumpstart.config.rollbar?
+gem "scout_apm" if Jumpstart.config.scout?
+gem "sentry-rails" if Jumpstart.config.sentry?
+gem "sentry-sidekiq" if Jumpstart.config.sentry? && Jumpstart.config.background_job_processor == "sidekiq"
+gem "skylight" if Jumpstart.config.skylight?
+
+# Background jobs
+gem "sidekiq" if Jumpstart.config.background_job_processor == "sidekiq"
+gem "delayed" if Jumpstart.config.background_job_processor == "delayed_job"
+gem "sneakers" if Jumpstart.config.background_job_processor == "sneakers"
+gem "sucker_punch" if Jumpstart.config.background_job_processor == "sucker_punch"
+gem "good_job" if Jumpstart.config.background_job_processor == "good_job"
+
+# Payment processors
+gem "stripe", "~> 10.0" if Jumpstart.config.stripe?
+gem "paddle", "~> 2.1" if Jumpstart.config.paddle_billing? || Jumpstart.config.paddle_classic?
+gem "braintree", "~> 4.15" if Jumpstart.config.braintree? || Jumpstart.config.paypal?
+
+# Notifications
+gem "apnotic" if Jumpstart.config.apns?
+gem "googleauth" if Jumpstart.config.fcm?

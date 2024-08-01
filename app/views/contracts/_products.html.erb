@@ -1,0 +1,29 @@
+<div class="block p-6 bg-white border border-gray-200 rounded-lg shadow">
+	<div class="flex justify-between items-center">
+    <h5 class=" text-gray-900 whitespace-nowrap">Products</h5>
+    <div class="flex gap-3 cursor-pointer">
+      <button x-on:click="edit = 'products-<%= contract.id %>'" data-contract-id="<%= contract.id %>" data-action="click->contracts#toggleCanvas" type="button" class="flex items-center gap-3 text-blue-700 font-semibold hover:text-blue-500">
+        <%= image_tag "icons/edit.svg" %>
+        Edit
+      </button>
+    </div>
+  </div>
+  <div class="overflow-x-auto">
+    <table class=" mt-7 min-w-full">
+      <thead>
+        <tr>
+          <th class="text-left w-1/5 pb-4 whitespace-nowrap">Product Name</th>
+          <th class="text-left pb-4 px-2 whitespace-nowrap">Unit/Seats</th>
+          <th class="text-left pb-4 px-2 whitespace-nowrap">Quantity</th>
+          <th class="text-left pb-4 px-3 whitespace-nowrap">Start Date</th>
+          <th class="text-left pb-4 px-3 whitespace-nowrap">End Date</th>
+          <th class="text-left pb-4 px-3 whitespace-nowrap">Sale Price</th>
+          <th class="text-left pb-4 px-3 whitespace-nowrap">Sales Tax</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "products/product", collection: contract.products %>
+      </tbody>
+    </table>
+  </div>
+</div>

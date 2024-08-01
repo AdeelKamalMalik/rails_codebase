@@ -1,0 +1,82 @@
+<div class="flex">
+  <div class="w-1/5 px-4 py-12 sm:px-6 lg:px-8 h-screen">
+    <nav class="flex justify-center" aria-label="Progress">
+      <ol role="list" class="space-y-6 list-none">
+        <li>
+          <!-- Complete Step -->
+          <a href="#" class="group">
+            <span class="flex items-start">
+              <span class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center">
+                <svg class="h-full w-full text-indigo-600 group-hover:text-indigo-800" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span class="ml-3 text-sm font-medium text-gray-500 group-hover:text-gray-900">Privacy & Security</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <!-- Current Step -->
+          <a href="#" class="flex items-start" aria-current="step">
+          <span class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center" aria-hidden="true">
+          <span class="absolute h-4 w-4 rounded-full bg-indigo-200"></span>
+          <span class="relative block h-2 w-2 rounded-full bg-indigo-600"></span>
+          </span>
+          <span class="ml-3 text-sm font-medium text-indigo-600">Profile Information</span>
+          </a>
+        </li>
+        <li>
+          <!-- Upcoming Step -->
+          <a href="#" class="group">
+            <div class="flex items-start">
+              <div class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center" aria-hidden="true">
+                <div class="h-2 w-2 rounded-full bg-gray-300 group-hover:bg-gray-400"></div>
+              </div>
+              <p class="ml-3 text-sm font-medium text-gray-500 group-hover:text-gray-900">How it works</p>
+            </div>
+          </a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <div class="w-4/5 px-4 pb-12 sm:px-6 rounded-lg m-5 lg:px-8" style="background: linear-gradient(147.73deg, #F2FAFF 2.16%, #E1FFF6 37.23%, #FFF4FE 91.64%);">
+    <div class="sm:flex py-12">
+      <div class="mb-4 flex justify-center items-center flex-shrink-0 sm:mb-0 sm:mr-4 h-[64px] w-[64px] bg-white border rounded-lg">
+        <%= image_tag "icons/lock.svg", size: '36.25x36.25', class: '' %>
+      </div>
+      <div>
+        <h4 class="text-lg font-bold">Data Protection</h4>
+        <p class="mt-1 w-full md:w-[490px]">We encrypt your data end-to-end and store it securely, ensuring only you and authorized users have access.</p>
+      </div>
+    </div>
+
+    <div class="sm:flex pb-12">
+      <div class="mb-4 flex justify-center items-center flex-shrink-0 sm:mb-0 sm:mr-4 h-[64px] w-[64px] bg-white border rounded-lg">
+        <%= image_tag "icons/cloud.svg", size: '36.25x36.25', class: '' %>
+      </div>
+      <div>
+        <h4 class="text-lg font-bold">Privacy Commitment</h4>
+        <p class="mt-1 w-full md:w-[490px]">our privacy is paramount. We transparently collect and use data, adhering to strict data protection laws.</p>
+      </div>
+    </div>
+
+     <div class="sm:flex pb-12">
+      <div class="mb-4 flex justify-center items-center flex-shrink-0 sm:mb-0 sm:mr-4 h-[64px] w-[64px] bg-white border rounded-lg">
+        <%= image_tag "icons/user-control.svg", size: '36.25x36.25', class: '' %>
+      </div>
+      <div>
+        <h4 class="text-lg font-bold">Security and User Control</h4>
+        <p class="mt-1 w-full md:w-[490px]">Built on rigorous security protocols for maximum protection, we empower you with control over your data rights.</p>
+      </div>
+    </div>
+
+    <footer class="flex justify-between sticky top-[100vh]">
+      <div class="flex">
+        <p class="text-medium text-[#64748B] mr-6">@2024 Contractful</p>
+        <a class="font-medium font-semibold" href="https://contractful.co/privacy" target="_blank">Privacy Policy</a>
+      </div>
+      <button class="btn btn-primary px-8">Next <%= image_tag 'icons/arrow-left.svg', class: 'ml-3 text-sm' %></button>
+    </footer>
+  </div>
+</div>

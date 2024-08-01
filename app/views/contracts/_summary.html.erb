@@ -1,0 +1,56 @@
+<div class="block p-6 bg-white border border-gray-200 rounded-lg shadow pb-20" id="summary-<%= contract.id %>">
+  <div class="flex justify-between items-center">
+    <h5 class=" text-gray-900 whitespace-nowrap">Summary</h5>
+    <div class="flex gap-3 cursor-pointer">
+      <button x-on:click="edit = 'general-<%= contract.id %>'" data-action="click->contracts#toggleCanvas" type="button" class="flex items-center gap-3 text-blue-700 font-semibold hover:text-blue-500" data-contract-id="<%= contract.id %>">
+        <%= image_tag "icons/edit.svg" %>
+        Edit
+      </button>
+    </div>
+  </div>
+  <div class="flex flex-col md:flex-row justify-between items-center w-4/5 mt-6">
+    <div>
+      <div class="flex items-center gap-4 mt-4">
+        <%= image_tag "icons/calendar.svg", class: 'w-4 h-4' %>
+        <div class="font-semibold"><%= datetime_display(contract.start_date) %> - <%= datetime_display(contract.end_date) %></div>
+      </div>
+      <div class="flex items-center gap-4 mt-4">
+        <%= image_tag "icons/currency-dollar.svg", class: 'w-4 h-4' %>
+        <div class="font-semibold"><%= contract.monthly_cost ? contract.monthly_price.format : 'NA' %></div>
+        <div class="text-gray-500">Monthly Cost</div>
+      </div>
+      <div class="flex items-center gap-4 mt-4">
+        <%= image_tag "icons/currency-dollar.svg", class: 'w-4 h-4' %>
+        <div class="font-semibold"><%= contract.annual_cost ? contract.annual_price.format : 'NA' %></div>
+        <div class="text-gray-500">Annual Cost</div>
+      </div>
+      <div class="flex items-center gap-4 mt-4">
+        <%= image_tag "icons/currency-dollar.svg", class: 'w-4 h-4' %>
+        <div class="font-semibold"><%= contract.total_cost ? contract.total_price.format : 'NA' %></div>
+        <div class="text-gray-500">Total Cost</div>
+      </div>
+    </div>
+    <div>
+      <div class="flex items-center gap-4 mt-4">
+        <%= image_tag "icons/currency-dollar.svg", class: 'w-4 h-4 fill-current text-red-800' %>
+        <div class="font-semibold"> <%= humanize_bool(contract.auto_renewal) %></div>
+        <div class="text-gray-500">Auto-Renewal</div>
+      </div>
+      <div class="flex items-center gap-4 mt-4">
+        <%= image_tag "icons/info.svg", class: 'w-4 h-4 fill-current' %>
+        <div class="font-semibold"><%= contract.renewal_date ? datetime_display(contract.renewal_date) : 'NA' %></div>
+        <div class="text-gray-500">Renewal Date</div>
+      </div>
+      <div class="flex items-center gap-4 mt-4">
+        <%= image_tag "icons/currency-dollar.svg", class: 'w-4 h-4' %>
+        <div class="font-semibold"><%= contract.billing_interval.presence || 'NA' %></div>
+        <div class="text-gray-500">Billing</div>
+      </div>
+      <div class="flex items-center gap-4 mt-4">
+        <%= image_tag "icons/currency-dollar.svg", class: 'w-4 h-4' %>
+        <div class="font-semibold"><%= contract.payment_terms.presence || 'NA' %></div>
+        <div class="text-gray-500">Payment Terms</div>
+      </div>
+    </div>
+  </div>
+</div>

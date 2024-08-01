@@ -1,0 +1,35 @@
+<div data-controller="settings" x-data="{ openTab: <%= params[:tab].present? ? params[:tab] : '1' %>  }" id="showPage" data-open-modal="<%= defined?(open_modal) && !open_modal.nil? ? open_modal : false %>">
+  <div class="md:mt-24 mt-8 container mx-auto md:px-16">
+    <h1>Settings</h1>
+    <div >
+      <div >
+        <div class="flex space-x-4 px-2 mt-7">
+          <div x-on:click="openTab = 1" :class="{ 'border-b-2 border-indigo-500': openTab === 1 }" class="py-2 cursor-pointer">Account</div>
+          <div x-on:click="openTab = 2" :class="{ 'border-b-2 border-indigo-500': openTab === 2 }" class="py-2 px-4 cursor-pointer">Security</div>
+          <div x-on:click="openTab = 3" :class="{ 'border-b-2  border-indigo-500': openTab === 3 }" class="py-2 px-4 cursor-pointer">Alerts</div>
+          <div x-on:click="openTab = 4" :class="{ 'border-b-2 border-indigo-500': openTab === 4 }" class="py-2 px-4 cursor-pointer">Billing</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-b border-gray-200"></div>
+  <div class="container mx-auto md:px-16 mt-7">
+    <div x-show="openTab === 1" class="w-full">
+      <%= render partial: 'account/settings/tabs/account' %>
+    </div>
+    <div x-show="openTab === 2">
+      <%= render partial: 'account/settings/tabs/security' %>
+    </div>
+    <div x-show="openTab === 3">
+       <%= render partial: 'account/settings/tabs/alerts' %>
+    </div>
+    <div x-show="openTab === 4">
+      <%= render "account/settings/tabs/billing" %>
+    </div>
+  </div>
+</div>
+<div>
+  <%= render 'account/settings/password_modal' %>
+</div>
+<%= render 'contracts/contract_modal' %>
+<%= render 'subscriptions/upgrade_modal' %>

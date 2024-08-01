@@ -1,0 +1,37 @@
+<%= content_for :title, "Blogs" %>
+<%= turbo_stream_from :blogs %>
+
+<div class="container px-4 mx-auto my-8">
+  <div class="flex items-center justify-between mb-4">
+    <div>
+      <h1 class="h3">Blogs</h1>
+
+      <div class="text-sm font-medium">
+        <span class="text-gray-500 dark:text-gray-300/75">Sort by:</span>
+        <%= sortable @blogs, :title, "Title", class: "text-gray-700 dark:text-gray-300 mr-1" %>
+        <%= sortable @blogs, :content, "Content", class: "text-gray-700 dark:text-gray-300 mr-1" %>
+        <%= sortable @blogs, :user_id, "User", class: "text-gray-700 dark:text-gray-300 mr-1" %>
+      </div>
+    </div>
+
+    <%= link_to t("shared.scaffold.new.title", model: "Blog"), new_blog_path, class: "btn btn-white" %>
+  </div>
+
+  <%= tag.div id: ("blogs" if first_page?), class: "bg-white dark:bg-gray-900 dark:border dark:border-gray-700 rounded-md shadow p-6 space-y-8" do %>
+    <%= render partial: "blogs/index", collection: @blogs, as: :blog, cached: true %>
+
+    <div class="hidden only:flex flex-col items-center justify-between lg:flex-row">
+      <%= image_tag "empty.svg", class: "mb-4 lg:w-1/2" %>
+      <div class="flex-1 text-center">
+        <p class="mb-4 h3">Create your first Blog</p>
+        <%= link_to t("shared.scaffold.new.title", model: "Blog"), new_blog_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @pagy.pages > 1 %>
+    <div class="my-6 text-center">
+      <%== pagy_nav(@pagy) %>
+    </div>
+  <% end %>
+</div>

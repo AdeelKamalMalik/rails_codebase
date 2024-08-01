@@ -1,0 +1,117 @@
+<% content_for :section_title, "Buttons" %>
+
+<%= h2_with_anchor "Default" %>
+<%= render "jumpstart/docs/snippet" do %>
+  <div class="space-y-4">
+    <button class="btn btn-primary mr-2">Primary</button>
+    <button class="btn btn-secondary mr-2">Secondary</button>
+    <button class="btn btn-tertiary mr-2">Tertiary</button>
+    <button class="btn btn-danger mr-2">Danger</button>
+    <button class="btn btn-gray mr-2">Gray</button>
+    <button class="btn btn-white mr-2">White</button>
+    <button class="btn btn-link mr-2">Link</button>
+    <button class="btn btn-light-blue mr-2">Light Blue</button>
+    <button class="btn btn-light-green mr-2">Light Green</button>
+    <button class="btn btn-light-red mr-2">Light Red</button>
+  </div>
+<% end %>
+
+<%= h2_with_anchor "Block" %>
+<%= render "jumpstart/docs/snippet" do %>
+  <div class="space-y-4">
+    <button class="btn btn-block btn-tertiary btn-outline mr-2">
+      <%= render_svg "icons/download", styles: "fill-current icon-sm mr-2" %> Primary
+    </button>
+  </div>
+<% end %>
+
+<%= h2_with_anchor "Outlined" %>
+<%= render "jumpstart/docs/snippet" do %>
+  <div class="space-y-4">
+    <a href="#" class="btn btn-primary btn-outline mr-2">Primary</a>
+    <a href="#" class="btn btn-secondary btn-outline mr-2">Secondary</a>
+    <a href="#" class="btn btn-tertiary btn-outline mr-2">Tertiary</a>
+    <a href="#" class="btn btn-danger btn-outline mr-2">Danger</a>
+  </div>
+<% end %>
+
+<%= h2_with_anchor "Small" %>
+<%= render "jumpstart/docs/snippet" do %>
+  <div class="space-y-4">
+    <button class="btn btn-small btn-primary mr-2">Primary</button>
+    <button class="btn btn-small btn-secondary mr-2">Secondary</button>
+    <button class="btn btn-small btn-tertiary mr-2">Tertiary</button>
+    <button class="btn btn-small btn-danger mr-2">Danger</button>
+    <button class="btn btn-small btn-gray mr-2">Gray</button>
+    <button class="btn btn-small btn-white mr-2">White</button>
+    <button class="btn btn-small btn-link mr-2">Link</button>
+  </div>
+<% end %>
+
+<%= h2_with_anchor "Large" %>
+<%= render "jumpstart/docs/snippet" do %>
+  <div class="space-y-4">
+    <button class="btn btn-large btn-primary mr-2">Primary</button>
+    <button class="btn btn-large btn-secondary mr-2">Secondary</button>
+    <button class="btn btn-large btn-tertiary mr-2">Tertiary</button>
+    <button class="btn btn-large btn-danger mr-2">Danger</button>
+    <button class="btn btn-large btn-gray mr-2">Gray</button>
+    <button class="btn btn-large btn-white mr-2">White</button>
+    <button class="btn btn-large btn-link mr-2">Link</button>
+  </div>
+<% end %>
+
+<%= h2_with_anchor "Button with Icon" %>
+<p>See the <%= link_to "Icons documentation", icons_docs_path %> for rendering SVGs inline.</p>
+
+<div class="not-prose">
+  <pre class=""><code>&lt;%= form.button do %&gt;
+  &lt;%= render_svg "icons/download", styles: "fill-current icon-sm mr-2", title: "my icon" %&gt;
+  Primary
+&lt;% end %&gt;
+</code></pre>
+</div>
+
+<%= render "jumpstart/docs/snippet" do %>
+  <div class="space-y-4">
+    <button class="btn btn-primary mr-2">
+      <%= render_svg "icons/download", styles: "fill-current icon-sm mr-2" %> Primary
+    </button>
+
+    <button class="btn btn-secondary mr-2">
+      <%= render_svg "icons/download", styles: "fill-current icon-sm mr-2" %> Secondary
+    </button>
+
+    <button class="btn btn-tertiary mr-2">
+      <%= render_svg "icons/download", styles: "fill-current icon-sm mr-2" %> Tertiary
+    </button>
+
+    <button class="btn btn-danger mr-2">
+      <%= render_svg "icons/trash", styles: "fill-current icon-sm mr-2" %> Danger
+    </button>
+
+    <button class="btn btn-gray mr-2">
+      <%= render_svg "icons/trash", styles: "fill-current icon-sm mr-2" %> Gray
+    </button>
+
+    <button class="btn btn-white mr-2">
+      <%= render_svg "icons/trash", styles: "fill-current icon-sm mr-2" %> White
+    </button>
+
+    <button class="btn btn-link mr-2">
+      Link <%= render_svg "icons/arrow-right", styles: "fill-current icon-xs ml-2" %>
+    </button>
+  </div>
+<% end %>
+
+<%= h2_with_anchor "Disabled" %>
+<%= render "jumpstart/docs/snippet" do %>
+  <div class="space-y-4">
+    <button class="btn btn-primary mr-2" disabled><%= button_text "Primary" %></button>
+    <button class="btn btn-secondary mr-2" disabled><%= button_text "Secondary" %></button>
+    <button class="btn btn-tertiary mr-2" disabled><%= button_text "Tertiary" %></button>
+    <button class="btn btn-danger mr-2" disabled><%= button_text "Danger" %></button>
+    <button class="btn btn-white mr-2" disabled><%= button_text "White" %></button>
+    <button class="btn btn-link mr-2" disabled><%= button_text "Link" %></button>
+  </div>
+<% end %>

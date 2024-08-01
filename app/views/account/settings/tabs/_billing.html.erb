@@ -1,0 +1,18 @@
+<% if account_admin?(current_account, current_user) %>
+  <h5 class="text-gray-700 dark:text-gray-300 font-semibold my-4 border-b border-gray-200 dark:border-gray-700 pb-2">Current plan</h5>
+
+  <% if @subscriptions&.any? %>
+    <%= render partial: "subscriptions/subscription", collection: @subscriptions %>
+  <% else %>
+    <div class="flex">
+      <div class="flex-1 mt-2 text-gray-700 dark:text-gray-300">You are not currently subscribed.</div>
+      <div><%= link_to "Choose a plan", pricing_path, class: "btn btn-primary" %></div>
+    </div>
+  <% end %>
+
+  <%= render partial: "subscriptions/billing_email" %>
+  <%= render partial: "subscriptions/billing_info" %>
+  <%= render partial: "subscriptions/charges" %>
+<% else %>
+  <p class="text-black dark:text-white">Contact an admin to change the <%= current_account.name %> subscription.</p>
+<% end %>

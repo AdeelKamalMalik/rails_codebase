@@ -1,0 +1,87 @@
+<% content_for :section_title, "Installation" %>
+
+<%= h2_with_anchor "Installing Jumpstart Pro" %>
+<p>To install dependencies, set up, and configure your application follow the latest instructions in the repository:</p>
+<p><%= link_to "Rails Installation", "https://github.com/jumpstart-pro/jumpstart-pro-rails#readme", class: "font-bold", target: :_blank %></p>
+<p><%= link_to "iOS Installation", "https://github.com/jumpstart-pro/jumpstart-pro-ios#readme", class: "font-bold", target: :_blank %></p>
+<p><%= link_to "Android Installation", "https://github.com/jumpstart-pro/jumpstart-pro-android#readme", class: "font-bold", target: :_blank %></p>
+
+<div class="not-prose alert alert-info mb-6" role="alert">
+  <div class="flex items-start justify-start">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-4 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+    </svg>
+    <div>
+      <h4 class="font-semibold text-sm">The GitHub repository is only accessible to customers.</h4>
+    </div>
+  </div>
+</div>
+
+<%= h3_with_anchor "Screencast" %>
+<p>This screencast will walk you through cloning Jumpstart Pro's git repository, installing dependencies, and setting up your brand new application so you can easily merge updates from git.</p>
+
+<div class="w-full">
+  <div class="embed-container">
+    <iframe src='https://www.youtube.com/embed/2DEneP450hU' frameborder='0' allowfullscreen></iframe>
+  </div>
+</div>
+
+<%= h2_with_anchor "Development" %>
+
+<p class="text-xl">Jumpstart Pro provides some useful configuration for making development easier.</p>
+
+<%= h3_with_anchor "Processes" %>
+<p>Use the <code>bin/dev</code> command to run your application's processes.</p>
+<p>As usual, you'll need to run several processes in development.</p>
+
+<ul>
+  <li><code>rails server</code> - duh. 😜</li>
+  <li><code>yarn run build</code> - bundles Javascript using esbuild</li>
+  <li><code>yarn run build:css</code> - bundles CSS using Tailwind CLI and PostCSS</li>
+  <li><code>sidekiq</code> - or whatever background worker process you have configured</li>
+</ul>
+
+<p>These commands are defined in <code>Procfile</code> and <code>Procfile.dev</code> so they can be started and shutdown together.</p>
+<p>You'll also need to make sure PostgreSQL, Redis, etc servers are installed and running externally.</p>
+
+<%= h3_with_anchor "Overmind & Foreman" %>
+<p><%= link_to "Overmind", "https://github.com/DarthSim/overmind", target: :_blank %> and Foreman are process managers that start/stop the processes defined in <code>Procfile.dev</code>. Overmind is recommended because it allows you to join a process and interact with it. Unfortunately, Foreman is incompatible with binding.irb, pry, or similar debuggers.</p>
+<div class="not-prose">
+  <pre><code>brew install tmux overmind</code></pre>
+</div>
+
+<p>You can then run your application anytime with:</p>
+<div class="not-prose">
+  <pre><code>bin/dev</code></pre>
+</div>
+
+<%= h4_with_anchor "Overmind Tips" %>
+<div class="not-prose">
+  <pre><code># Debugging with byebug: connect to the `web` process to be able to input commands:
+overmind connect web
+# Then disconnect by hitting [Ctrl+B] (or your tmux prefix) and then [D].
+
+# Restart a process without restarting all the other ones:
+overmind restart web
+
+# If something goes wrong, you can kill all running processes:
+overmind kill</code></pre>
+</div>
+
+<%= h3_with_anchor "Docker & Docker Compose", id: :docker %>
+<p>If you'd like to use Docker, we provide a <code>Dockerfile</code> and <code>docker-compose.yml</code> example configuration you can use as a starting point.</p>
+<div class="not-prose">
+  <pre><code>docker-compose up</code></pre>
+</div>
+<p>Then open <%= link_to "http://localhost:3000", "http://localhost:3000", target: :_blank %></p>
+<p>To run Rails console, run:</p>
+<div class="not-prose">
+  <pre><code>docker-compose exec web bin/rails console</code></pre>
+</div>
+
+<%= h3_with_anchor "Developing on Windows", id: :windows %>
+<p>If you'd like to run Jumpstart Pro on Windows, we recommend using WSL2. You can find instructions here: https://gorails.com/setup/windows</p>
+<p>Alternatively, if you'd like to use Docker on Windows, you'll need to make sure you clone the repository and preserve the Linux line endings.</p>
+<div class="not-prose">
+  <pre><code>git clone git@github.com:username/myrepo.git --config core.autocrlf=input</code></pre>
+</div>

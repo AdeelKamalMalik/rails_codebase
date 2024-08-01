@@ -1,0 +1,93 @@
+<div data-controller="contracts" x-data="{ openTab: <%= params[:tab].present? ? params[:tab] : '1' %>  }">
+  <div class="md:mt-16 mt-8 container mx-auto md:px-16">
+    <div class="flex flex-wrap items-center justify-between">
+      <div class="flex items-center gap-6">
+        <%= image_tag "icons/contract-logo.svg" %>
+        <input id="vendor-name-input" type="text" value="<%= @contract.name || 'Gong FY23' %>" class="border-gray-200 rounded-lg hidden">
+        <span id="vendor-name"><%= @contract.name || 'Gong FY23' %></span>
+        <div class="relative inline-block text-left" data-controller="dropdown">
+          <div>
+            <p id="vendor-name-saved-text" class="text-green-600 hidden" style="font-weight: bold;"> Saved </p>
+            <button type="button" class="flex items-center" id="menu-button" aria-expanded="true" aria-haspopup="true" data-action="click->dropdown#toggle click@window->dropdown#hide">
+            <span class="sr-only">Open options</span>
+            <%= image_tag "icons/horizontal-three-dots.svg" %>
+            </button>
+          </div>
+          <div data-dropdown-target="menu"
+            data-transition-enter="transition ease-out duration-200"
+            data-transition-enter-from="opacity-0 translate-y-1"
+            data-transition-enter-to="opacity-100 translate-y-0"
+            data-transition-leave="transition ease-in duration-150"
+            data-transition-leave-from="opacity-100 translate-y-0"
+            data-transition-leave-to="opacity-0 translate-y-1"
+            class="absolute hidden z-10 mt-2 w-56 origin-top-right rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+            <div class="py-1" role="none">
+              <p class="hover:bg-gray-200 text-slate-600 cursor-pointer px-5 py-2" role="menuitem" tabindex="-1" id="downloadCsvMenuItem">
+                <%= link_to 'Download as CSV', download_csv_contracts_path(format: 'csv', public_id: @contract.public_id), class: 'btn-link text-slate-600 hover:text-slate-600' %>
+              </p>
+              <p class="hover:bg-gray-200 text-slate-600 cursor-pointer px-5 py-2" role="menuitem" tabindex="-1" id="rename-vendor">Rename Vendor</p>
+              <p class="hover:bg-gray-200 text-slate-600 cursor-pointer px-5 py-2" role="menuitem" tabindex="-1" id="archiveVendorMenuItem">
+                <%= link_to @contract.archived? ? 'Unarchive Vendor' : 'Archive Vendor', @contract.archived? ? unarchive_contract_path(@contract) : archive_contract_path(@contract), class: 'btn-link text-slate-600 hover:text-slate-600' %>
+              </p>
+              <hr class="text-gray-100">
+              <div class="my-3" role="none">
+                <span class="text-slate-500 cursor-pointer px-5 py-2" role="menuitem" tabindex="-1" id="menu-item-3">Vendor ID</span>
+                <p class="hover:bg-gray-200 text-slate-500 cursor-pointer px-5 py-2" role="menuitem" tabindex="-1" id="menu-item-3"><%= @contract.public_id %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 md:mt-0">
+        <div class='inline-flex btn btn-primary nav-link text-white hover:text-white text-sm p-5' data-controller="settings" data-action="click->settings#openModal" data-modal-id="newContract">
+          <%= render_svg "icons/plus", styles: "mr-2" %> New Contract
+        </div>
+        <svg width="592" class="top-[3.6rem] right-0 -z-30 absolute hidden md:block" height="220" viewBox="0 0 592 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_f_2933_8897)">
+            <ellipse cx="388.5" cy="247" rx="138.5" ry="138" fill="#BFDBFE"/>
+          </g>
+          <defs>
+            <filter id="filter0_f_2933_8897" x="0" y="-141" width="777" height="776" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+              <feGaussianBlur stdDeviation="125" result="effect1_foregroundBlur_2933_8897"/>
+            </filter>
+          </defs>
+        </svg>
+      </div>
+    </div>
+    <div>
+      <div>
+        <svg class="top-[3.6rem] -z-30 left-[22rem] absolute hidden md:block" width="645" height="220" viewBox="0 0 645 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_f_2914_8896)">
+            <ellipse cx="322.5" cy="296" rx="122.5" ry="122" fill="#BFDBFE"/>
+          </g>
+          <defs>
+            <filter id="filter0_f_2914_8896" x="0" y="-26" width="645" height="644" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+              <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_2914_8896"/>
+            </filter>
+          </defs>
+        </svg>
+      </div>
+      <ul class="flex flex-wrap px-2 mt-7 whitespace-nowrap">
+        <div x-on:click="openTab = 1" :class="{ 'border-b-2 border-indigo-500': openTab === 1 }" class="py-2 cursor-pointer flex gap-2">
+          <%= @contract.name %>
+          <%= image_tag "icons/warning-alert.svg" %>
+        </div>
+        <div x-on:click="openTab = 2" :class="{ 'border-b-2 border-indigo-500': openTab === 2 }" class="py-2 px-4 cursor-pointer">Contract 2 Name</div>
+        <div x-on:click="openTab = 3" :class="{ 'border-b-2  border-indigo-500': openTab === 3 }" class="py-2 md:px-4 cursor-pointer">Contract 3 Name</div>
+        <div x-on:click="openTab = 4" :class="{ 'border-b-2 border-indigo-500': openTab === 4 }" class="py-2 px-4 cursor-pointer">Contract 4 Name</div>
+        <div x-on:click="openTab = 5" :class="{ 'border-b-2 border-indigo-500': openTab === 5 }" class="py-2 md:px-4 cursor-pointer">More</div>
+      </ul>
+    </div>
+  </div>
+  <div class="border-b border-gray-200"></div>
+  <div class="container mx-auto md:px-16 mt-14">
+    <div x-show="openTab === 1" class="w-full" x-data="{ edit: 'general' }">
+      <%= render partial: 'contract_header', locals: { contract: @contract } %>
+    </div>
+  </div>
+</div>
+<%= render 'contracts/contract_modal' %>

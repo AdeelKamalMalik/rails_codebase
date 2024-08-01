@@ -1,0 +1,120 @@
+<div class="nested-form-wrapper" data-new-record="<%= f&.object&.new_record? %>" id="product_<%= f&.object&.id %>">
+  <div class="my-4">
+    <div class="flex items-center justify-start gap-2 mb-2">
+      <%= f.label :name, "Product Name", class: 'text-sm font-medium text-black dark:text-black font-semibold' %>
+      <%= image_tag "icons/info-light-gray.svg", class: 'mb-1' %>
+    </div>
+    <%= f.text_field :name, class: "border-gray-200 rounded-lg w-full h-12 text-gray-500", required: false, "data-action": "change->contracts#preSubmitForm" %>
+  </div>
+  <div class="grid md:grid-cols-2 md:gap-6">
+    <div class="mb-4">
+      <div class="flex items-center mb-2 justify-start gap-2">
+        <%= f.label :quantity, "Quantity", class: 'text-sm font-medium text-black dark:text-black font-semibold' %>
+        <%= image_tag "icons/info-light-gray.svg", class: 'mb-1' %>
+      </div>
+      <%= f.number_field :quantity, class: "border-gray-200 rounded-lg w-full h-12 text-gray-500", required: false, "data-action": "change->contracts#preSubmitForm" %>
+    </div>
+    <div class="mb-4">
+      <div class="flex items-center justify-start gap-2 mb-2">
+        <%= f.label :unit, class: "text-sm font-medium text-black dark:text-black font-semibold" %>
+        <%= image_tag "icons/info-light-gray.svg", class: 'mb-1' %>
+      </div>
+      <%= f.text_field :unit, class: "border-gray-200 rounded-lg w-full h-12 text-gray-500", required: false, "data-action": "change->contracts#preSubmitForm" %>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 md:gap-6">
+    <div>
+      <div class="flex items-center gap-2 mb-2">
+        <%= f.label :start_date, class: "text-sm font-medium text-black dark:text-black font-semibold" %>
+        <%= image_tag "icons/info-light-gray.svg", class: 'mb-1' %>
+      </div>
+      <div class="relative max-w-sm">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+           <%= image_tag "icons/calendar.svg" %>
+        </div>
+        <%= f.date_field :start_date, class: "px-10 border-gray-200 rounded-lg w-full h-12 text-gray-500",required: false,  data: { controller: "flatpickr", flatpickr_month_selector_type: "static" }, "data-action": "change->contracts#preSubmitForm" %>
+      </div>
+    </div>
+    <div class="mb-4">
+      <div class="flex items-center gap-2 mb-2">
+        <%= f.label :end_date, class: "text-sm font-medium text-black dark:text-black font-semibold" %>
+        <%= image_tag "icons/info-light-gray.svg", class: 'mb-1' %>
+      </div>
+      <div class="relative max-w-sm">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+           <%= image_tag "icons/calendar.svg" %>
+        </div>
+        <%= f.date_field :end_date, class: "px-10 border-gray-200 rounded-lg w-full h-12 text-gray-500", required: false, data: { controller: "flatpickr", flatpickr_month_selector_type: "static" }, "data-action": "change->contracts#preSubmitForm" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 md:gap-6">
+    <div class="mb-4">
+      <div class="flex items-center justify-start gap-2 mb-2">
+        <label for="sales_price" class="text-sm font-medium text-black dark:text-black font-semibold">Sale Price</label>
+        <%= image_tag "icons/info-light-gray.svg", class: 'mb-1' %>
+      </div>
+      <div class="relative mt-2 rounded-md shadow-sm">
+        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+          <span class="text-gray-500 sm:text-sm">$</span>
+        </div>
+        <%= f.number_field :sales_price, class: "h-12 text-gray-500 w-full rounded-md py-1.5 pl-7 border-gray-200", placeholder: '0.00', required: false, "data-action": "change->contracts#preSubmitForm" %>
+      </div>
+    </div>
+    <div class="mb-4">
+      <div class="flex items-center justify-start gap-2 mb-2">
+        <label for="sales_tax" class="text-sm font-medium text-black dark:text-black font-semibold">Sales Tax</label>
+        <%= image_tag "icons/info-light-gray.svg", class: 'mb-1' %>
+      </div>
+      <div class="relative mt-2 rounded-md shadow-sm">
+        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+          <span class="text-gray-500 sm:text-sm">$</span>
+        </div>
+        <%= f.number_field :sales_tax, class: "h-12 text-gray-500 w-full rounded-md py-1.5 pl-7 border-gray-200", placeholder: '0.00', required: false, "data-action": "change->contracts#preSubmitForm" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <div class="flex items-center justify-start gap-2 mb-2">
+      <label for="discount" class="text-sm font-medium text-black dark:text-black font-semibold">Discount</label>
+      <%= image_tag "icons/info-light-gray.svg", class: 'mb-1' %>
+    </div>
+    <div class="relative mt-2 rounded-md shadow-sm">
+      <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+        <span class="text-gray-500 sm:text-sm">$</span>
+      </div>
+      <%= f.number_field :discount, class: "h-12 text-gray-500 w-full rounded-md py-1.5 pl-7 border-gray-200", placeholder: '0.00', required: false, "data-action": "change->contracts#preSubmitForm" %>
+    </div>
+  </div>
+
+  <div class="mb-5">
+    <div class="flex items-center mb-2 justify-start gap-2">
+      <%= f.label :notes, class: "text-sm font-medium text-black dark:text-black font-semibold" %>
+      <%= image_tag "icons/info-light-gray.svg", class: 'mb-1' %>
+    </div>
+    <%= f.text_area :notes, class: "border-gray-200 rounded-lg w-full text-gray-500 shadow-md", required: false, "data-action": "change->contracts#preSubmitForm" %>
+  </div>
+  <button class="hidden bg-blue-700 text-white font-semibold hover:bg-blue-500 focus:bg-blue-800 rounded-lg border border-blue-700 px-4 py-2" type="button" data-action="click->products#add click->products#focusProduct" data-product-id="product_" data-products-target="addProductBtn">Add Product</button>
+  <button type="button" data-action="products#beforeRemove" class="text-blue-700 font-semibold hover:text-blue-500">Remove Product</button>
+  <% if flash[:notice] %>
+    <div data-turbo-stream-flash="true" data-products-target="flash" class="hidden mt-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+      <span class="block sm:inline"><%= flash[:notice] %></span>
+    </div>
+  <% end %>
+  <%= f.hidden_field :_destroy %>
+  <div id="<%= f&.object&.id ? "remove-product-#{f&.object&.id}" : "NEW_RECORD" %>" class="hidden z-50 bg-black/10 animated fadeIn fixed top-0 left-0 w-full h-full table bg-opacity-75 p-0">
+    <div class="table-cell align-middle">
+      <div class="bg-white mx-auto rounded shadow p-8 max-w-md dark:bg-gray-800">
+        <h5><span id="product_name"></span>Are you sure to delete this product?</h5>
+        <p class="mt-4 text-sm text-gray-700"></p>
+        <div class="flex justify-end items-center flex-wrap gap-2 mt-6">
+          <span data-id="<%= f&.object&.id ? "remove-product-#{f&.object&.id}" : "NEW_RECORD" %>" data-action="click->products#closeModal" class="btn btn-white border-gray-400">Cancel</span>
+          <a href="#" data-action="click->products#remove" class="btn btn-primary focus:outline-none">Confirm</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

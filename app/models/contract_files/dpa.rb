@@ -1,0 +1,2 @@
+class Dpa < ContractFile
+end

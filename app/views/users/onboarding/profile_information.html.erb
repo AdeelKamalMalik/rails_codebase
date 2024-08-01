@@ -1,0 +1,78 @@
+<div class="flex">
+  <div class="w-1/5 px-4 py-12 sm:px-6 lg:px-8 hidden md:block">
+    <nav class="flex justify-center" aria-label="Progress">
+      <ol role="list" class="space-y-6 list-none">
+        <li>
+          <%= link_to privacy_user_onboarding_path, class: "cursor-pointer group flex items-start text-sm font-medium text-gray-500 hover:text-blue-500" do %>
+            <span class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center">
+              <svg class="h-full w-full text-blue-700" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+              </svg>
+            </span>
+            <span class="ml-3">Privacy & Security</span>
+          <% end %>
+        </li>
+        <li>
+          <a class="cursor-pointer flex items-start" aria-current="step">
+          <span class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center" aria-hidden="true">
+          <span class="absolute h-4 w-4 rounded-full bg-indigo-200"></span>
+          <span class="relative block h-2 w-2 rounded-full bg-indigo-600"></span>
+          </span>
+          <span class="ml-3 text-sm font-medium text-blue-700">Profile Information</span>
+          </a>
+        </li>
+        <li>
+          <% if current_user.how_heard_about_us.present? && current_user.role.present? && current_user.owned_accounts&.all? { |account| account.name.present? } %>
+            <%= link_to how_it_works_user_onboarding_path, class: "cursor-pointer group flex items-start text-sm font-medium text-gray-500 hover:text-blue-500" do %>
+              <span class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center">
+                <div class="h-2 w-2 rounded-full bg-gray-300"></div>
+              </span>
+              <span class="ml-3">How it works</span>
+            <% end %>
+          <% else %>
+            <span class="flex items-start text-sm font-medium text-gray-500">
+              <span class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center">
+                <div class="h-2 w-2 rounded-full bg-gray-300"></div>
+              </span>
+              <span class="ml-3">How it works</span>
+            </span>
+          <% end %>
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <div class="md:w-4/5 w-full px-4 pb-12 sm:px-6 rounded-lg m-5 lg:px-8 bg-gray-50 h-[95vh]" data-controller="onboarding">
+    <div class="mt-16 w-[442px] flex justify-center mx-auto bg-white border rounded-lg shadow-lg p-[48px]">
+      <%= form_with(model: current_user, as: :user, url: registration_path(:user), method: :put, class: "mb-16", html: {class: '', id:'profile-information'}) do |f| %>
+        <%= render "shared/error_messages", resource: current_user %>
+        <h3 class="text-lg mb-4">Finish your profile</h3>
+        <div class="form-group">
+          <%= f.label :role, "Your Role", class: 'text-sm text-black' %>
+          <%= f.text_field :role, autocomplete: "role", class: "mt-2 form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :how_heard_about_us, "How did you hear about us?", class: 'text-sm text-black' %>
+          <%= f.text_field :how_heard_about_us, class: "mt-2 form-control" %>
+        </div>
+        <%= f.fields_for :owned_accounts do |a| %>
+          <div class="form-group">
+            <%= a.label :name, "Company Name", class: 'text-sm text-black' %>
+            <%= a.text_field :name, autofocus: true, class: "mt-2 form-control" %>
+          </div>
+          <div class="form-group mb-0">
+            <%= a.label :alternative_name, "Alternative Company Name", class: 'text-sm text-black' %>
+            <%= a.text_field :alternative_name, autofocus: true, class: "mt-2 form-control" %>
+          </div>
+          <div class="mt-1 text-gray-600 text-sm font-regular">
+            We use this information to better secure your companies data
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="flex gap-16 justify-end items-center sticky top-[100vh]">
+      <%= link_to "Do it later", do_it_later_user_onboarding_path, class: "font-medium" %>
+      <button data-action="click->onboarding#profileInfo" class="btn btn-primary px-10">Next <%= image_tag 'icons/arrow-left.svg', class: 'ml-3 text-sm' %></button>
+    </div>
+  </div>
+</div>

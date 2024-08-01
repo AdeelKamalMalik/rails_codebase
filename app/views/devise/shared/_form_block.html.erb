@@ -1,0 +1,20 @@
+<div class="grid lg:grid-cols-2 px-4 mx-auto lg:px-0">
+  <div>
+    <div class="mt-6 ml-5 absolute w-1/2 mr-4">
+      <%= render partial: "shared/flash" %>
+    </div>
+
+    <div class="md:w-1/2 mx-auto w-full">
+      <div class="ml-4 mt-24 ">
+        <%= image_tag "logo.svg" %>
+      </div>
+      <div class="p-4">
+        <%= yield :form_block %>
+      </div>
+    </div>
+  </div>
+
+  <div class="hidden lg:block h-screen">
+    <%= image_tag "accounts.svg", class: "w-full max-h-full h-full py-6" %>
+  </div>
+</div>

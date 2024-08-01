@@ -1,0 +1,15 @@
+<%# Place any links for the LEFT side of the nav bar here. Be sure to add class: "nav-link" to each item for proper spacing. %>
+
+
+<% if current_user %>
+  <ul class="flex flex-wrap -mb-px font-medium">
+    <div class="me-2">
+      <%= link_to root_path do %>
+      <div class="inline-flex items-center justify-center p-5 text-black <%= current_page?(root_path) ? "border-b-2" : '' %> border-blue-600 dark:text-black dark:border-blue-500 cursor-pointer dark:text-white">
+        Dashboard
+      </div>
+      <% end %>
+    </div>
+  </ul>
+<% end %>
+<%= nav_link_to "Blogs", blogs_path, class: "nav-link" %>

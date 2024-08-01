@@ -1,0 +1,12 @@
+<div id="removeDocument" aria-labelledby="modal-title" role="dialog" aria-modal="true" data-controller="contracts" class="hidden z-50 bg-black/10 animated fadeIn fixed top-0 left-0 w-full h-full table bg-opacity-75 p-0">
+  <div class="align-middle mt-15">
+    <div class="bg-white mx-auto rounded shadow p-8 max-w-md dark:bg-gray-800">
+      <h5>Are you sure you want to delete this document?</h5>
+      <div class="flex justify-end items-center gap-2 mt-6">
+        <button data-controller="settings" data-action="click->settings#closeModal" data-modal-id="removeDocument" type="button" class="btn btn-white border-gray-400 cursor-pointer"> Cancel
+        </button>
+        <button data-action="click->contracts#deleteContractFile" class="btn btn-primary focus:outline-none">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>

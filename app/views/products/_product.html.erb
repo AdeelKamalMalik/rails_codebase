@@ -1,0 +1,12 @@
+<tr class="border-t border-gray-300" id="product-<%= product.id %>">
+  <td class="text-left py-4"><%= product.name %></td>
+  <td class="text-gray-500 text-left p-4"><%= product.unit %></td>
+  <td class="text-gray-500 text-left p-4"><%= product.quantity %></td>
+  <td class="text-gray-500 text-left p-4"><%= product.start_date %></td>
+  <td class="text-gray-500 text-left p-4"><%= product.end_date %></td>
+  <td class="text-gray-500 text-left p-4"><%= Money.from_amount(product.sales_price || 0, product.contract.currency_code).format %></td>
+  <td class="text-gray-500 text-left p-4"><%= Money.from_amount(product.sales_tax || 0, product.contract.currency_code).format %></td>
+  <td class="text-gray-500 text-left p-1 relative" data-controller="tooltip" data-tooltip-content-value="<%= product.notes %>">
+    <%= image_tag "icons/info.svg", class: 'mb-1 cursor-pointer' %>
+  </td>
+</tr>
