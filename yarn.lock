@@ -986,10 +986,10 @@ tailwindcss-animated@^1.0.1:
   resolved "https://registry.yarnpkg.com/tailwindcss-animated/-/tailwindcss-animated-1.0.1.tgz#a2ab097848b5802dd824f65d65f2840fc5ec5c7e"
   integrity sha512-u5wusj89ZwP8I+s8WZlaAd7aZTWBN/XEG6QgMKpkIKmAf3xP1A6WYf7oYIKmGaB10UAQaSqWopi/i1ozzZEs8Q==
 
-tailwindcss-stimulus-components@^4.0.2:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/tailwindcss-stimulus-components/-/tailwindcss-stimulus-components-4.0.4.tgz#1df5f2a488aa89365561bb33357095cd59ed831a"
-  integrity sha512-xNlMs1WufKiTMQtVklwHfrR/iuPVaFA0Mk5uefRnHztmr7w4g6BzKAWHyfte60pjhcQbmlbshHMOZiq/dkXnhw==
+tailwindcss-stimulus-components@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/tailwindcss-stimulus-components/-/tailwindcss-stimulus-components-5.1.1.tgz#0d1aee03819033844528863a0288de4dff54bfe5"
+  integrity sha512-9e3H9WLZoGzWQBVOdYvxqM42MsJ4dfkfdrs3NGV+HYvHbIcF9tukl2MPKVZpBv/pP+puZbJv0lFgdn79IGVApA==
 
 tailwindcss@^3.4.1:
   version "3.4.1"
